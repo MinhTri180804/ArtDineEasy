@@ -1,5 +1,50 @@
 .dropdown__component {
   padding: 8px 12px;
   border: 1px solid var(--stroke-grey-color);
-  border: 8px;
+  width: fit-content;
+
+  //   styling for condition has icon left
+  &.icon__left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    .dropdown__component-icon {
+      width: 18px;
+      height: 18px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  //   Styling for condition has image right
+  &.image__right {
+    .dropdown__component-title {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+
+      &--icon {
+        height: 30px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+  }
+
+  .dropdown__component-title {
+    &--value {
+      font-weight: 400;
+      font-size: var(--font-size-desktop-body-1);
+    }
+  }
 }
