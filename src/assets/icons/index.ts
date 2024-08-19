@@ -1,2 +1,3 @@
 import { ArrowDownIcon } from './ArrowDownIcon';
-export { ArrowDownIcon };
+import { UserIcon } from './UserIcon';
+export { ArrowDownIcon, UserIcon };

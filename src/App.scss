@@ -2,3 +2,26 @@
 @import './styles/styles.scss';
 
 // Apply style for App in here
+.container {
+  padding: 0px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0px 40px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    padding: 0px 80px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    padding: 0;
+    width: 1200px;
+    margin: 0 auto;
+  }
+}

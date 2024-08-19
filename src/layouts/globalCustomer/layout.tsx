@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import './styles.scss';
+import HeaderComponent from './partials/Header';
 
 const GlobalCustomerLayout = () => {
   return (
     <>
-      <header>This is header</header>
+      <HeaderComponent />
 
       <main>
         <Outlet />
