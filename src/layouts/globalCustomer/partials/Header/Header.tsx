@@ -44,7 +44,7 @@ const HeaderComponent = () => {
           <div className="header__actions-language">
             <Dropdown
               title="Tiếng Việt"
-              IconLeft={ArrowDownIcon}
+              IconLeft={<ArrowDownIcon strokeColor="#000" />}
               ImageRight={flagVN}
               dropdownChildren={mockLanguages}
             />
