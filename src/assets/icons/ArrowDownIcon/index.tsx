@@ -13,9 +13,9 @@ const ArrowDownIcon = ({ strokeColor = '#1E1E1E' }: IArrowDownIcon) => {
       <path
         d="M14.625 6.1875L9 11.8125L3.375 6.1875"
         stroke={strokeColor}
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

@@ -11,12 +11,12 @@ const RouterRoutes = () => {
     <Routes>
       <Route path={ROUTES_PATH.DEFAULT} element={<GlobalCustomerLayout />}>
         <Route path={ROUTES_PATH.DEFAULT} element={<HomePage />} />
+        <Route
+          path={ROUTES_PATH.ABOUT}
+          element={<div>This is about my website</div>}
+        />
       </Route>
 
-      <Route
-        path={ROUTES_PATH.ABOUT}
-        element={<div>This is about my website</div>}
-      />
       {/* <Route path='/host' element={}/> */}
     </Routes>
   );

@@ -1,7 +1,11 @@
+import HeroSection from './partials/HeroSection';
+
 const HomePage = () => {
   return (
-    <div className="container__page">
-      <div className="container__page-title">This is Home page</div>
+    <div className="home__page-container">
+      <section className="hero__section">
+        <HeroSection />
+      </section>
     </div>
   );
 };
