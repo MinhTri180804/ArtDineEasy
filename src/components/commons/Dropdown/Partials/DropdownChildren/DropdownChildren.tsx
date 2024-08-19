@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import { IDropdownItem } from '../../../../../types/components/DropdownItem';
+import './styles.scss';
 
 interface IDropdownChildren {
   childrenData: IDropdownItem[];
@@ -8,10 +9,7 @@ const DropdownChildren = ({ childrenData }: IDropdownChildren) => {
   const id = useId();
 
   return (
-    <div
-      className="dropdown__component-children"
-      //   onClick={() => handleSelect(value)}
-    >
+    <div className="dropdown__component-children">
       {childrenData.map((item: IDropdownItem, index: number) => (
         <div
           className="dropdown__component-children-item"

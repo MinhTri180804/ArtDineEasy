@@ -13,7 +13,9 @@ const TypeServiceComponent = () => {
 
         <div className="description">
           Mô hình nhà hàng sẽ là nơi sang trọng và những món ăn sẽ phụ thuộc vào
-          phong...
+          phong Mô hình nhà hàng sẽ là nơi sang trọng và những món ăn sẽ phụ
+          thuộc vào phong Mô hình nhà hàng sẽ là nơi sang trọng và những món ăn
+          sẽ phụ thuộc vào phong
         </div>
 
         <Link to={ROUTES_PATH.DEFAULT}>

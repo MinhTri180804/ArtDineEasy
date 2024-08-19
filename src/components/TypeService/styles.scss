@@ -29,10 +29,15 @@
     }
 
     & > .description {
-      font-size: var(--font-size-desktop-body-2);
+      font-size: var(--font-size-desktop-body-1);
       color: var(--text-nero-color);
       font-weight: lighter;
       line-height: 150%;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     & > a {
