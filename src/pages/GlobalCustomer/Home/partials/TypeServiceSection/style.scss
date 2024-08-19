@@ -1,0 +1,33 @@
+.type__service-content {
+  .type__service-container {
+    & > .title {
+      font-size: var(--font-size-desktop-heading-1);
+      color: var(--text-nero-color);
+      font-weight: bold;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 32px;
+      & > span {
+        color: var(--main-primary-color);
+      }
+    }
+
+    & > .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+
+      & > .type__service-component {
+        flex: 1;
+        transition: box-shadow 0.3s;
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+      }
+    }
+  }
+}
