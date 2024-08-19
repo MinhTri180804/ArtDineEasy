@@ -1,14 +1,14 @@
-import ButtonComponent from '../../../../../components/commons/Button';
+import { Link } from 'react-router-dom';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
-import banner from '../../../../../assets/images/banner.svg';
+import { ArrowRightIcon } from '../../../../../assets/icons';
 import banner2 from '../../../../../assets/images/banner-2.svg';
 import banner3 from '../../../../../assets/images/banner-3.svg';
-import { ArrowRightIcon } from '../../../../../assets/icons';
+import banner from '../../../../../assets/images/banner.svg';
+import ButtonComponent from '../../../../../components/commons/Button';
 import './styles.scss';
-import { Link } from 'react-router-dom';
 
 const bannersMock = [
   {
