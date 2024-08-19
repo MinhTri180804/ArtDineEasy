@@ -1,4 +1,7 @@
-const ArrowDownIcon = () => {
+interface IArrowDownIcon {
+  strokeColor?: string;
+}
+const ArrowDownIcon = ({ strokeColor = '#1E1E1E' }: IArrowDownIcon) => {
   return (
     <svg
       width="18"
@@ -9,7 +12,7 @@ const ArrowDownIcon = () => {
     >
       <path
         d="M14.625 6.1875L9 11.8125L3.375 6.1875"
-        stroke="#1E1E1E"
+        stroke={strokeColor}
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"

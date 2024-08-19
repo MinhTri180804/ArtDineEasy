@@ -2,9 +2,10 @@ import React, { ComponentType, useId } from 'react';
 import { IDropdownItem } from '../../../types/components/DropdownItem';
 import './styles.scss';
 import DropdownChildren from './Partials/DropdownChildren';
+import renderIcon from '../../../utils/renderIcon';
 
 interface IDropdown {
-  IconLeft?: ComponentType<React.SVGProps<SVGSVGElement>> | string;
+  IconLeft?: JSX.Element;
   ImageRight?: string | ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   classNames?: string;
@@ -30,19 +31,13 @@ const Dropdown = ({
       >
         <div className="dropdown__component-title">
           <div className="dropdown__component-title--icon">
-            {typeof ImageRight === 'string' ? (
-              <img src={ImageRight} alt="" />
-            ) : (
-              <ImageRight />
-            )}
+            {renderIcon({ Icon: ImageRight, textAlt: 'flag image' })}
           </div>
 
           <div className="dropdown__component-title--value">Việt Nam</div>
         </div>
 
-        <div className="dropdown__component-icon">
-          <IconLeft />
-        </div>
+        <div className="dropdown__component-icon">{IconLeft}</div>
 
         {dropdownChildren && (
           <DropdownChildren childrenData={dropdownChildren} />
@@ -61,9 +56,7 @@ const Dropdown = ({
           <div className="dropdown__component-title--value">Việt Nam</div>
         </div>
 
-        <div className="dropdown__component-icon">
-          <IconLeft />
-        </div>
+        <div className="dropdown__component-icon">{IconLeft}</div>
 
         {dropdownChildren && (
           <DropdownChildren childrenData={dropdownChildren} />
@@ -82,11 +75,7 @@ const Dropdown = ({
       >
         <div className="dropdown__component-title">
           <div className="dropdown__component-title--icon">
-            {typeof ImageRight === 'string' ? (
-              <img src={ImageRight} alt="" />
-            ) : (
-              <ImageRight />
-            )}
+            {renderIcon({ Icon: ImageRight, textAlt: 'flag image' })}
           </div>
 
           <div className="dropdown__component-title--value">{title}</div>
