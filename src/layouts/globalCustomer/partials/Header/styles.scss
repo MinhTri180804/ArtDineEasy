@@ -1,0 +1,28 @@
+@import '../../../../styles/base/mixins';
+
+header {
+  padding: 12px 0px;
+  & > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__logo {
+      width: 237px;
+      height: 52px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    .header__actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 22px;
+    }
+  }
+}
