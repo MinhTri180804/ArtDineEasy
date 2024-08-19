@@ -1,9 +1,25 @@
 .button__component {
   border-radius: var(--border-radius-size-xl);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
 
   &[data-type='primary'] {
     background-color: var(--main-primary-color);
     border: 1px solid var(--main-primary-color);
+
+    &:hover {
+      background-color: var(--button-hover-color);
+      border-color: var(--button-hover-color);
+    }
+
+    &:active {
+      background-color: var(--button-active-color);
+    }
+
+    &:disabled {
+      background-color: var(--button-disable-color);
+      border-color: var(--button-disable-color);
+    }
 
     & > .button__component-content {
       color: var(--main-white-color);
@@ -21,6 +37,36 @@
   &[data-type='secondary'] {
     background-color: var(--main-white-color);
     border: 1px solid var(--main-primary-color);
+
+    &:hover {
+      border-color: var(--button-hover-color);
+
+      & > .button__component-content {
+        color: var(--button-hover-color);
+      }
+    }
+
+    &:active {
+      border-color: var(--button-active-color);
+
+      & > .button__component-content {
+        color: var(--button-active-color);
+      }
+    }
+
+    &:disabled {
+      border-color: var(--button-disable-color);
+
+      & > .button__component-content {
+        color: var(--button-disable-color);
+      }
+
+      & > .button__component-icon {
+        svg {
+          opacity: 0.4;
+        }
+      }
+    }
 
     & > .button__component-content {
       color: var(--main-primary-color);

@@ -6,6 +6,7 @@ interface IButtonComponent {
   size?: '40' | '32';
   Icon?: JSX.Element;
   iconPosition?: 'left' | 'right';
+  disabled?: boolean;
 }
 const ButtonComponent = ({
   content = 'Button',
@@ -13,9 +14,11 @@ const ButtonComponent = ({
   size = '40',
   Icon,
   iconPosition,
+  disabled = false,
 }: IButtonComponent) => {
   return (
     <button
+      disabled={disabled}
       className="button__component"
       data-type={type}
       data-size={size}
