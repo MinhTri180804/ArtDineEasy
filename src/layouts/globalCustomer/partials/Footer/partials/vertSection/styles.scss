@@ -1,0 +1,32 @@
+.vert__container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+
+  & > .title {
+    font-size: var(--font-size-desktop-heading-3);
+    color: var(--main-white-color);
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  & > ul.list__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    & > li {
+      & > a {
+        font-size: var(--font-size-desktop-body-2);
+        font-weight: 400;
+        color: var(--main-white-color);
+        text-transform: capitalize;
+      }
+    }
+  }
+}

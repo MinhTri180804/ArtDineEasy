@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import SwiperCore from 'swiper';
+import { Keyboard, Mousewheel, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -8,7 +9,6 @@ import StoreComponent from '../../../../../components/Store';
 import ButtonComponent from '../../../../../components/commons/Button';
 import { TitleSection } from '../TitleSection/TitleSection';
 import './styles.scss';
-import { Navigation } from 'swiper/modules';
 
 interface IStoreSwiperSectionProps {
   propsOfTitleSection: {
@@ -56,8 +56,11 @@ const StoreSwiperSection = ({
         spaceBetween={24}
         slidesPerView={4}
         className="mySwiper"
-        modules={[]}
+        cssMode
+        mousewheel={true}
+        modules={[Mousewheel]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
+        scrollbar={{ draggable: true }}
         breakpoints={{
           320: {
             slidesPerView: 2,
