@@ -3,6 +3,7 @@ import HeroSection from './partials/HeroSection';
 import StoreSwiperSection from './partials/StoreSwiperSection';
 import TypeServiceSection from './partials/TypeServiceSection';
 import './styles.scss';
+import { FoodCategoriesSection } from './partials/FoodCategoriesSection/FoodCategoriesSection';
 
 const HomePage = () => {
   return (
@@ -31,6 +32,10 @@ const HomePage = () => {
             titleTarget: 'Ưu đãi',
           }}
         />
+      </section>
+
+      <section className="food__categories-section container section--margin">
+        <FoodCategoriesSection titleNormal="Các món ăn" />
       </section>
     </div>
   );

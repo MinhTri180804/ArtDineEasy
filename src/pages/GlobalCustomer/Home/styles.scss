@@ -7,3 +7,9 @@
 .mySwiper {
   padding: 0 0px;
 }
+
+@media (max-width: 768px) {
+  main {
+    overflow: hidden;
+  }
+}
