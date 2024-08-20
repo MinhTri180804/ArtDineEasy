@@ -1,0 +1,31 @@
+.more__action {
+  position: relative;
+
+  & > &-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--text-nero-color);
+    }
+  }
+
+  & > &-list {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    margin: 12px 0px 0px;
+    left: 0;
+    height: 100%;
+
+    & > .item {
+      color: red;
+      font-size: var(--font-size-desktop-body-3);
+      width: fit-content;
+    }
+  }
+}

@@ -1,13 +1,12 @@
 import TypeServiceComponent from '../../../../../components/TypeService';
+import { TitleSection } from '../TitleSection/TitleSection';
 import './style.scss';
 
 const TypeServiceSection = () => {
   return (
     <div className="type__service-content">
       <div className="type__service-container container">
-        <div className="title">
-          Các mô hình <span>dịch vụ</span>
-        </div>
+        <TitleSection titleNormal="Các mô hình" titleTarget="dịch vụ" />
 
         <div className="content">
           <TypeServiceComponent />
