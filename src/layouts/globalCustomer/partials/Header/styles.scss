@@ -23,6 +23,10 @@ header {
       justify-content: flex-end;
       align-items: center;
       gap: 22px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
 }

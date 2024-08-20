@@ -22,7 +22,7 @@ const ButtonComponent = ({
       className="button__component"
       data-type={type}
       data-size={size}
-      data-iconPosition={iconPosition ?? 'none'}
+      data-iconposition={iconPosition ?? 'none'}
       data-icon={Icon ? 'true' : 'false'}
     >
       {Icon && iconPosition && (

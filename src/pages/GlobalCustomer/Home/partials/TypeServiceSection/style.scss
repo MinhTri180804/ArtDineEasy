@@ -1,0 +1,20 @@
+.type__service-content {
+  .type__service-container {
+    & > .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+
+      & > .type__service-component {
+        flex: 1;
+        transition: box-shadow 0.3s;
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+      }
+    }
+  }
+}

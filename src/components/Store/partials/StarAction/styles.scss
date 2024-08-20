@@ -1,0 +1,25 @@
+.star__action {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+
+  .star__action-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: #ffc702;
+      stroke: #ffc702;
+    }
+  }
+
+  .star__action-value {
+    color: var(--text-nero-color);
+    font-weight: 400;
+    font-size: var(--font-size-desktop-body-3);
+  }
+}

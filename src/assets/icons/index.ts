@@ -1,3 +1,16 @@
 import { ArrowDownIcon } from './ArrowDownIcon';
 import { UserIcon } from './UserIcon';
-export { ArrowDownIcon, UserIcon };
+import { ArrowRightIcon } from './ArrowRightIcon';
+import { StarIcon } from './StarIcon';
+import { FeedbackIcon } from './FeedbackIcon';
+import { MoreIcon } from './MoreIcon';
+import { ArrowLeftIcon } from './ArrowLeftIcon';
+export {
+  ArrowDownIcon,
+  UserIcon,
+  ArrowRightIcon,
+  StarIcon,
+  FeedbackIcon,
+  MoreIcon,
+  ArrowLeftIcon,
+};
