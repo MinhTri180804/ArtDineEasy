@@ -8,6 +8,24 @@
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      justify-content: center;
+      align-items: center;
+
+      & > .hero__section-slides {
+        width: 100%;
+      }
+
+      & > .hero__section-content {
+        text-align: center;
+        align-items: center;
+        padding: 24px 0px;
+      }
+    }
+
     & > .hero__section-content {
       grid-column: 1 / span 5;
       display: flex;
