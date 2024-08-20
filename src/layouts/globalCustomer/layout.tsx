@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import './styles.scss';
 import HeaderComponent from './partials/Header';
+import FooterComponent from './partials/Footer';
 
 const GlobalCustomerLayout = () => {
   return (
@@ -11,7 +12,9 @@ const GlobalCustomerLayout = () => {
         <Outlet />
       </main>
 
-      <footer>This is footer</footer>
+      <footer>
+        <FooterComponent />
+      </footer>
     </>
   );
 };
