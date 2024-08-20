@@ -1,0 +1,41 @@
+.tag__food-category {
+  padding: 4px 12px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    &.category {
+      background-color: var(--main-primary-color);
+      color: var(--main-white-color);
+      border-color: var(--main-primary-color);
+    }
+  }
+
+  &.plus {
+    background-color: var(--main-primary-color);
+    border-color: var(--main-primary-color);
+  }
+
+  &.category {
+    background-color: var(--main-white-color);
+    border-color: var(--stroke-white-smoke-color);
+  }
+
+  & > .content {
+    font-size: var(--font-size-desktop-body-3);
+    font-weight: 400;
+    text-transform: capitalize;
+    width: fit-content;
+  }
+
+  & > .tag__content content {
+    color: var(--text-nero-color);
+  }
+
+  & > .plus__content {
+    color: var(--main-white-color);
+  }
+}

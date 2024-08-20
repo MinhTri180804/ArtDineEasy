@@ -1,0 +1,77 @@
+:root {
+  // Define font size for desktop
+  --font-size-desktop-heading-1: 32px;
+  --font-size-desktop-heading-2: 24px;
+  --font-size-desktop-heading-3: 18px;
+  --font-size-desktop-body-1: 16px;
+  --font-size-desktop-body-2: 14px;
+  --font-size-desktop-body-3: 12px;
+
+  // Define font size for tablet
+  --font-size-tablet-heading-1: 32px;
+  --font-size-tablet-heading-2: 24px;
+  --font-size-tablet-heading-3: 16px;
+  --font-size-tablet-body-1: 14px;
+  --font-size-tablet-body-2: 12px;
+
+  // Define font size for mobile
+  --font-size-mobile-heading-1: 24px;
+  --font-size-mobile-heading-2: 20px;
+  --font-size-mobile-heading-3: 16px;
+  --font-size-mobile-body-1: 14px;
+  --font-size-mobile-body-2: 12px;
+
+  // Define border size
+  --border-radius-size-s: 2px;
+  --border-radius-size-l: 4px;
+  --border-radius-size-x: 6px;
+  --border-radius-size-xl: 8px;
+  --border-radius-size-2xl: 10px;
+  --border-radius-size-3xl: 12px;
+
+  // Define tints of evening sea (main color)
+  --evening-sea-tint-1: #2a6e4f;
+  --evening-sea-tint-2: #338661;
+  --evening-sea-tint-3: #3c9e72;
+  --evening-sea-tint-4: #45b683;
+  --evening-sea-tint-5: #5ac193;
+  --evening-sea-tint-6: #72c9a2;
+  --evening-sea-tint-7: #89d2b2;
+  --evening-sea-tint-8: #a1dbc1;
+  --evening-sea-tint-9: #b8e4d1;
+
+  //   Define shades of evening sea (main color)
+  --evening-sea-shades-1: #256146;
+  --evening-sea-shades-2: #256146;
+  --evening-sea-shades-3: #20533c;
+  --evening-sea-shades-4: #1a4532;
+  --evening-sea-shades-5: #153728;
+  --evening-sea-shades-6: #102a1e;
+  --evening-sea-shades-7: #0b1c14;
+  --evening-sea-shades-8: #050e0a;
+  --evening-sea-shades-9: #000000;
+
+  //   Define main colors
+  --main-primary-color: #2a6e4f;
+  --main-error-color: ##e05744;
+  --main-white-color: #ffffff;
+
+  //   Define stroke colors
+  --stroke-white-smoke-color: #f0efef;
+  --stroke-evening-sea-color: var(--main-primary-color);
+  --stroke-white-color: var(--main-white-color);
+  --stroke-light-grey-color: #cccccc;
+  --stroke-grey-color: #e1e2e9;
+
+  //   Define text colors
+  --text-dim-grey-color: #6e6e6e;
+  --text-light-grey-color: #d9d9d9;
+  --text-nero-color: #1e1e1e;
+
+  //   Define button color
+  --button-default-color: var(--main-primary-color);
+  --button-hover-color: var(--evening-sea-tint-3);
+  --button-active-color: var(--main-primary-color);
+  --button-disable-color: var(--evening-sea-tint-9);
+  --button-click-color: var(--evening-sea-shades-3);
+}

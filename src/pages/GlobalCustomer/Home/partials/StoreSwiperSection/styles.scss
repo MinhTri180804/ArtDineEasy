@@ -1,0 +1,76 @@
+.store__swiper-container {
+  position: relative;
+  & > .actions-more {
+    width: 100%;
+    margin-top: 32px;
+
+    & > button {
+      width: 100%;
+      transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+
+      &:hover {
+        & > .button__component-icon {
+          & > svg {
+            stroke: var(--button-hover-color);
+          }
+        }
+      }
+
+      & > .button__component-icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+
+        & > svg {
+          stroke: var(--main-primary-color);
+          width: 100%;
+          height: 100%;
+          transition: stroke 0.3s;
+        }
+      }
+    }
+  }
+
+  .mySwiper {
+    position: relative;
+    height: 100%;
+
+    .swiper-wrapper {
+      overflow-y: hidden;
+    }
+  }
+
+  .navigation {
+    & > button {
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      top: 50%;
+      z-index: 999;
+      transform: translateY(-50%);
+      width: 42;
+      height: 42px;
+      cursor: pointer;
+      &:hover {
+        & > svg {
+          stroke: var(--text-nero-color);
+        }
+      }
+
+      & > svg {
+        width: 100%;
+        height: 100%;
+        transition: stroke 0.3s;
+        stroke: var(--stroke-grey-color);
+      }
+    }
+
+    &--left {
+      left: -66px;
+    }
+
+    &--right {
+      right: -66px;
+    }
+  }
+}
