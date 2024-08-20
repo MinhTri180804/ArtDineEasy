@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import SwiperCore from 'swiper';
-import { Keyboard, Mousewheel, Navigation } from 'swiper/modules';
+import { Mousewheel, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
