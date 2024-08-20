@@ -1,11 +1,8 @@
-import StoreComponent from '../../../components/Store';
+import 'swiper/scss';
 import HeroSection from './partials/HeroSection';
-import { TitleSection } from './partials/TitleSection/TitleSection';
+import StoreSwiperSection from './partials/StoreSwiperSection';
 import TypeServiceSection from './partials/TypeServiceSection';
 import './styles.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/scss';
-import { Pagination, Navigation } from 'swiper/modules';
 
 const HomePage = () => {
   return (
@@ -18,31 +15,22 @@ const HomePage = () => {
         <TypeServiceSection />
       </section>
 
-      <section className="store__hot-section  container">
-        <TitleSection titleNormal="Các địa điểm" titleTarget="nổi bật" />
-        <Swiper spaceBetween={24} slidesPerView={4} className="mySwiper">
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-        </Swiper>
+      <section className="store__hot-section  container section--margin">
+        <StoreSwiperSection
+          propsOfTitleSection={{
+            titleNormal: 'Các địa diểm',
+            titleTarget: 'Nổi bật',
+          }}
+        />
+      </section>
+
+      <section className="store__discount-section container section--margin">
+        <StoreSwiperSection
+          propsOfTitleSection={{
+            titleNormal: 'Các địa điểm có',
+            titleTarget: 'Ưu đãi',
+          }}
+        />
       </section>
     </div>
   );
