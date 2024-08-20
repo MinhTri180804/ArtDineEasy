@@ -1,0 +1,25 @@
+.food__category-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  & > .image__food {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  & > .name__food {
+    font-size: var(--font-size-desktop-body-2);
+    font-weight: 400;
+    color: var(--text-nero-color);
+  }
+}
