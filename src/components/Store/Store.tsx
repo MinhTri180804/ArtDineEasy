@@ -4,6 +4,7 @@ import StarAction from './partials/StarAction';
 import './styles.scss';
 import banner from '../../assets/images/banner.svg';
 import TagFoodCategory from '../TagFoodCategory';
+import DiscountTagComponent from '../DiscountTag';
 
 const storeMock = {
   image: banner,
@@ -13,6 +14,7 @@ const storeMock = {
   foodTags: ['Pizza', 'Burger', 'Pasta', 'Sushi'],
   like: 100,
   feedback: 50,
+  discount: 'Giam 10%',
 };
 
 interface IStoreComponentProps {
@@ -36,6 +38,10 @@ const StoreComponent = ({}: IStoreComponentProps) => {
       </div>
       <div className="store__description">
         <p>{storeMock.description}</p>
+      </div>
+      <div className="store__discounts">
+        <DiscountTagComponent textContent={storeMock.discount} size="medium" />
+        <DiscountTagComponent moreValue={4} size="medium" />
       </div>
       <div className="store__actions">
         <div className="store__actions-group">

@@ -18,6 +18,10 @@
     color: var((--text-nero-color));
     font-weight: 400;
 
+    &.more-value {
+      color: var(--main-primary-color);
+    }
+
     &.small {
       font-size: var(--font-size-desktop-body-3);
     }

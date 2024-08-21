@@ -49,6 +49,14 @@
     }
   }
 
+  .store__discounts {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
   .store__actions {
     display: flex;
     justify-content: space-between;
