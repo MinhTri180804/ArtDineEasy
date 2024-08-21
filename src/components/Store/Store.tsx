@@ -3,7 +3,7 @@ import MoreAction from './partials/MoreAction';
 import StarAction from './partials/StarAction';
 import './styles.scss';
 import banner from '../../assets/images/banner.svg';
-import TagFoodCategory from './partials/TagFoodCategory';
+import TagFoodCategory from '../TagFoodCategory';
 
 const storeMock = {
   image: banner,

@@ -29,6 +29,18 @@
     font-weight: 400;
     text-transform: capitalize;
     width: fit-content;
+
+    &.small {
+      font-size: var(--font-size-desktop-body-3);
+    }
+
+    &.medium {
+      font-size: var(--font-size-desktop-body-2);
+    }
+
+    &.large {
+      font-size: var(--font-size-desktop-body-1);
+    }
   }
 
   & > .tag__content content {
