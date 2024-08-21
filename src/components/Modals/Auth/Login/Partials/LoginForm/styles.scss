@@ -1,0 +1,51 @@
+form.login__form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+
+  & > .options-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > .option-remember {
+      display: flex;
+      justify-content: flex-start;
+      gap: 8px;
+      align-items: center;
+
+      & > input[type='checkbox'] {
+        width: 24px;
+        height: 24px;
+      }
+
+      & > label {
+        font-size: var(--font-size-desktop-body-2);
+        color: var(--text-nero-color);
+        font-weight: 300;
+        font-style: italic;
+      }
+    }
+
+    & > .option-forgot {
+      & > a {
+        color: var(--text-nero-color);
+        font-size: var(--font-size-desktop-body-2);
+        text-decoration: underline;
+        font-weight: 300;
+        transition: color 0.3s;
+      }
+
+      &:hover a {
+        color: var(--main-primary-color);
+      }
+    }
+  }
+
+  & > * {
+    width: 100%;
+  }
+}
