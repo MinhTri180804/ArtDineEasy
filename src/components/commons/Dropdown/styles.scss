@@ -63,4 +63,21 @@
   }
 
   //   Styling for dropdown children
+  .dropdown__component-children {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--main-white-color);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 12px;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 999;
+  }
 }
