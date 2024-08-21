@@ -5,6 +5,7 @@ import { StarIcon } from './StarIcon';
 import { FeedbackIcon } from './FeedbackIcon';
 import { MoreIcon } from './MoreIcon';
 import { ArrowLeftIcon } from './ArrowLeftIcon';
+import { TagIcon } from './TagIcon';
 export {
   ArrowDownIcon,
   UserIcon,
@@ -13,4 +14,5 @@ export {
   FeedbackIcon,
   MoreIcon,
   ArrowLeftIcon,
+  TagIcon,
 };
