@@ -1,12 +1,15 @@
-import logo from '../../../../assets/images/logo.svg';
-import Dropdown from '../../../../components/commons/Dropdown';
-import { ArrowDownIcon, UserIcon } from '../../../../assets/icons';
-import flagVN from '../../../../assets/images/FlagVN.svg';
-import './styles.scss';
-import { IDropdownItem } from '../../../../types/components/DropdownItem';
-import flagUS from '../../../../assets/images/FlagUS.svg';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowDownIcon, UserIcon } from '../../../../assets/icons';
+import flagUS from '../../../../assets/images/FlagUS.svg';
+import flagVN from '../../../../assets/images/FlagVN.svg';
+import logo from '../../../../assets/images/logo.svg';
+import OverlayComponent from '../../../../components/Overlay';
+import Dropdown from '../../../../components/commons/Dropdown';
+import DropdownChildren from '../../../../components/commons/Dropdown/Partials/DropdownChildren';
+import { IDropdownItem } from '../../../../types/components/DropdownItem';
 import { ROUTES_PATH } from '../../../../utils/constant';
+import './styles.scss';
 
 const HeaderComponent = () => {
   const mockLanguages: IDropdownItem[] = [
@@ -33,6 +36,29 @@ const HeaderComponent = () => {
     },
   ];
 
+  const [isShowOverlay, setIsShowOverlay] = useState(false);
+  const [contentOverlay, setContentOverlay] = useState<React.ReactNode | null>(
+    null
+  );
+
+  const handlerSelectLanguage = (value: string | number) => {
+    console.log('language: ', value);
+  };
+
+  const handlerSelectAccount = (value: string | number) => {
+    if (value !== 'login' && value !== 'register') return null;
+
+    if (value === 'login') {
+      setIsShowOverlay(true);
+      setContentOverlay(<div>Login</div>);
+    }
+
+    if (value === 'register') {
+      setIsShowOverlay(true);
+      setContentOverlay(<div>Register</div>);
+    }
+  };
+
   return (
     <header>
       <div className="container">
@@ -46,19 +72,37 @@ const HeaderComponent = () => {
               title="Tiếng Việt"
               IconLeft={<ArrowDownIcon strokeColor="#000" />}
               ImageRight={flagVN}
-              dropdownChildren={mockLanguages}
-            />
+            >
+              {mockLanguages.map((item, index) => (
+                <DropdownChildren
+                  key={index}
+                  itemData={item}
+                  handleSelect={handlerSelectLanguage}
+                />
+              ))}
+            </Dropdown>
           </div>
 
           <div className="header__actions-account">
-            <Dropdown
-              title="Đăng nhập / Đăng ký"
-              ImageRight={UserIcon}
-              dropdownChildren={mockAuth}
-            />
+            <Dropdown title="Đăng nhập / Đăng ký" ImageRight={UserIcon}>
+              {mockAuth.map((item, index) => (
+                <DropdownChildren
+                  key={index}
+                  itemData={item}
+                  handleSelect={handlerSelectAccount}
+                />
+              ))}
+            </Dropdown>
           </div>
         </div>
       </div>
+
+      <OverlayComponent
+        onClose={() => setIsShowOverlay(false)}
+        open={isShowOverlay}
+      >
+        {contentOverlay}
+      </OverlayComponent>
     </header>
   );
 };

@@ -1,33 +1,35 @@
-import { useId } from 'react';
+import React, { useId } from 'react';
 import { IDropdownItem } from '../../../../../types/components/DropdownItem';
 import './styles.scss';
 
-interface IDropdownChildren {
-  childrenData: IDropdownItem[];
+interface IDropdownChildrenProps {
+  itemData: IDropdownItem;
+  handleSelect: (value: string | number) => void | React.ReactNode;
 }
-const DropdownChildren = ({ childrenData }: IDropdownChildren) => {
+
+const DropdownChildren = ({
+  handleSelect,
+  itemData: { ImageRight, value, content },
+}: IDropdownChildrenProps) => {
   const id = useId();
 
   return (
-    <div className="dropdown__component-children">
-      {childrenData.map((item: IDropdownItem, index: number) => (
-        <div
-          className="dropdown__component-children-item"
-          key={`${id}-${index}`}
-        >
-          {item.ImageRight && (
-            <div className="logo">
-              {typeof item.ImageRight === 'string' ? (
-                <img src={item.ImageRight} alt="" />
-              ) : (
-                <item.ImageRight />
-              )}
-            </div>
+    <div
+      className="dropdown__component-children-item"
+      onClick={() => handleSelect(value)}
+      key={`${id}`}
+    >
+      {ImageRight && (
+        <div className="logo">
+          {typeof ImageRight === 'string' ? (
+            <img src={ImageRight} alt="" />
+          ) : (
+            <ImageRight />
           )}
-
-          <div className="content">{item.content}</div>
         </div>
-      ))}
+      )}
+
+      <div className="content">{content}</div>
     </div>
   );
 };
