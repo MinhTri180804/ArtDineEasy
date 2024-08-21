@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowDownIcon, UserIcon } from '../../../../assets/icons';
 import flagUS from '../../../../assets/images/FlagUS.svg';
@@ -10,6 +10,7 @@ import DropdownChildren from '../../../../components/commons/Dropdown/Partials/D
 import { IDropdownItem } from '../../../../types/components/DropdownItem';
 import { ROUTES_PATH } from '../../../../utils/constant';
 import './styles.scss';
+import LoginModal from '../../../../components/Modals/Auth/Login';
 
 const HeaderComponent = () => {
   const mockLanguages: IDropdownItem[] = [
@@ -40,6 +41,18 @@ const HeaderComponent = () => {
   const [contentOverlay, setContentOverlay] = useState<React.ReactNode | null>(
     null
   );
+  const headerRef = useRef<HTMLHeadElement>(null);
+
+  document.addEventListener('scroll', () => {
+    const header = headerRef.current;
+    if (header) {
+      if (window.scrollY > 0) {
+        header.classList.add('header__scroll');
+      } else {
+        header.classList.remove('header__scroll');
+      }
+    }
+  });
 
   const handlerSelectLanguage = (value: string | number) => {
     console.log('language: ', value);
@@ -50,7 +63,7 @@ const HeaderComponent = () => {
 
     if (value === 'login') {
       setIsShowOverlay(true);
-      setContentOverlay(<div>Login</div>);
+      setContentOverlay(<LoginModal onClose={() => setIsShowOverlay(false)} />);
     }
 
     if (value === 'register') {
@@ -60,7 +73,7 @@ const HeaderComponent = () => {
   };
 
   return (
-    <header>
+    <header ref={headerRef}>
       <div className="container">
         <Link to={ROUTES_PATH.DEFAULT} className="header__logo">
           <img src={logo} alt="art dine easy" />

@@ -1,0 +1,39 @@
+.heading__auth-modal {
+  width: 100%;
+  & > .heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    & > .logo {
+      & > img {
+        width: 324px;
+        height: 124px;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    & > .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 14px;
+
+      & > .content__title {
+        font-size: var(--font-size-desktop-heading-2);
+        color: var(--text-nero-color);
+        font-weight: both;
+      }
+
+      & > .content__sub {
+        font-size: var(--font-size-desktop-body-2);
+        font-weight: 400;
+        color: var(--stroke-light-grey-color);
+        font-style: italic;
+      }
+    }
+  }
+}
