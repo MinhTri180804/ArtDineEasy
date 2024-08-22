@@ -2,32 +2,30 @@ import { CloseIcon } from '../../../../assets/icons';
 import { googleLogo } from '../../../../assets/images';
 import FooterAuthModal from '../Partials/Footer';
 import HeadingAuthModal from '../Partials/Heading';
-import LoginForm from './Partials/LoginForm';
+import RegisterForm from './RegisterForm';
 import './styles.scss';
 
-interface ILoginModalProps {
+interface IRegisterModalProps {
   onClose: () => void;
-  onChangeModal: () => void;
+  onChangeModal?: () => void;
 }
 
-const LoginModal = ({ onClose, onChangeModal }: ILoginModalProps) => {
+const RegisterModal = ({ onClose, onChangeModal }: IRegisterModalProps) => {
   return (
-    <div className="login__modal">
+    <div className="register__modal">
       <div className="close" onClick={onClose}>
         <CloseIcon />
       </div>
-      <div className="login__modal-container">
+      <div className="register__modal-container">
         <section className="heading">
           <HeadingAuthModal
-            title="Đăng nhập"
-            subTitle="Chào mừng bạn đã quay trở lại"
+            title="Đăng Ký"
+            subTitle="Chào mừng bạn đến với chúng tôi"
           />
         </section>
 
-        <div className="other__method">
-          <div className="method__google btn__login">
-            <img src={googleLogo} alt="logo of google" />
-          </div>
+        <div className="register__form">
+          <RegisterForm />
         </div>
 
         <div className="or">
@@ -36,15 +34,17 @@ const LoginModal = ({ onClose, onChangeModal }: ILoginModalProps) => {
           <div className="or__line"></div>
         </div>
 
-        <div className="login__form">
-          <LoginForm />
+        <div className="other__method">
+          <div className="method__google btn__login">
+            <img src={googleLogo} alt="logo of google" />
+          </div>
         </div>
 
         <div className="footer">
           <FooterAuthModal
             actionContent={{
-              contentNormal: 'Bạn chưa có tài khoản ?',
-              contentTarget: 'Đăng ký ngay',
+              contentNormal: 'Bạn đã có tài khoản ? ',
+              contentTarget: 'Đăng nhập ngay',
               handleAction: onChangeModal,
             }}
           />
@@ -54,4 +54,4 @@ const LoginModal = ({ onClose, onChangeModal }: ILoginModalProps) => {
   );
 };
 
-export { LoginModal };
+export { RegisterModal };
