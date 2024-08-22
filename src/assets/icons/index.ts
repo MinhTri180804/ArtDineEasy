@@ -7,6 +7,8 @@ import { MoreIcon } from './MoreIcon';
 import { ArrowLeftIcon } from './ArrowLeftIcon';
 import { TagIcon } from './TagIcon';
 import { CloseIcon } from './CloseIcon';
+import { EyeIcon } from './Eye';
+import { EyeSlashIcon } from './EyeSlash';
 export {
   ArrowDownIcon,
   UserIcon,
@@ -17,4 +19,6 @@ export {
   ArrowLeftIcon,
   TagIcon,
   CloseIcon,
+  EyeIcon,
+  EyeSlashIcon,
 };

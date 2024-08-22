@@ -3,6 +3,7 @@ import InputField from '../../../../../commons/Field/Input';
 import './styles.scss';
 import { Link } from 'react-router-dom';
 import ButtonComponent from '../../../../../commons/Button';
+import InputPasswordField from '../../../../../commons/Field/InputPassword';
 
 interface IFormLogin {
   email: string;
@@ -38,9 +39,8 @@ const LoginForm = () => {
         error={errors.email?.message}
       />
 
-      <InputField
+      <InputPasswordField
         label="Mật khẩu"
-        type="password"
         {...register('password', {
           required: 'Mật khẩu không được để trống',
           minLength: {
