@@ -45,4 +45,10 @@
     width: fit-content;
     padding: 0;
   }
+
+  & > .overlay__content {
+    &.border-radius {
+      border-radius: 4px;
+    }
+  }
 }

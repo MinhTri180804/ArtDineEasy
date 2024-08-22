@@ -113,6 +113,7 @@ const HeaderComponent = () => {
       <OverlayComponent
         onClose={() => setIsShowOverlay(false)}
         open={isShowOverlay}
+        borderRadius
       >
         {contentOverlay}
       </OverlayComponent>

@@ -5,6 +5,7 @@ interface IOverlayComponentProps {
   children?: JSX.Element | JSX.Element[] | ReactNode;
   open: boolean;
   alignContent?: 'center' | 'left' | 'right' | 'top' | 'bottom';
+  borderRadius?: boolean;
   onClose: () => void;
 }
 
@@ -13,6 +14,7 @@ const OverlayComponent = ({
   open,
   alignContent = 'center',
   onClose,
+  borderRadius = false,
 }: IOverlayComponentProps) => {
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -31,7 +33,10 @@ const OverlayComponent = ({
       className={`overlay ${open && 'open'} ${alignContent}`}
       onClick={handleClickOutside}
     >
-      <div className="overlay__content" ref={overlayRef}>
+      <div
+        className={`overlay__content ${borderRadius && 'border-radius'}`}
+        ref={overlayRef}
+      >
         {children}
       </div>
     </div>
