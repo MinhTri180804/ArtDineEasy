@@ -1,5 +1,6 @@
 const ROUTES_PATH = {
   DEFAULT: '/',
+  STORE_DETAIL: '/store/:storeId',
   DASHBOARD_HOST: '/host',
   ABOUT: '/about',
 };
