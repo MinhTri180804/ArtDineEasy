@@ -4,8 +4,26 @@ import StoreSwiperSection from './partials/StoreSwiperSection';
 import TypeServiceSection from './partials/TypeServiceSection';
 import './styles.scss';
 import { FoodCategoriesSection } from './partials/FoodCategoriesSection/FoodCategoriesSection';
+import useQueryTopicRestaurant from '../../../hooks/queries/useQueryTopicRestaurant';
+import { useEffect } from 'react';
 
 const HomePage = () => {
+  // const { data } = useQueryTopicRestaurant();
+  // console.log(data);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetch('http://localhost:8081/indentity/Topic');
+        const result = await data.json();
+        console.log(result);
+        return result;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="home__page-container">
       <section className="hero__section">
