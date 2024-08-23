@@ -22,7 +22,11 @@ const AboutStoreSection = () => {
 
           <div className="tag__food-categories">
             {Array.from({ length: 3 }).map((_, index) => (
-              <TagFoodCategory key={index} content={`MON_${index + 2}`} />
+              <TagFoodCategory
+                size="medium"
+                key={index}
+                content={`MON_${index + 2}`}
+              />
             ))}
           </div>
 
@@ -31,6 +35,7 @@ const AboutStoreSection = () => {
               <DiscountTagComponent
                 key={index}
                 textContent={`GIAM_${index + 1}`}
+                size="medium"
               />
             ))}
           </div>
@@ -60,32 +65,30 @@ const AboutStoreSection = () => {
             <h3>Thông tin cửa hàng</h3>
           </div>
 
-          <div className="content">
-            <table>
-              <tbody>
-                <tr>
-                  <td>Địa chỉ:</td>
-                  <td>Địa chỉ cửa hàng</td>
-                </tr>
-                <tr>
-                  <td>Số điện thoại:</td>
-                  <td>0123456789</td>
-                </tr>
-                <tr>
-                  <td>Email:</td>
-                  <td>artdineease@gmail.com</td>
-                </tr>
-              </tbody>
-            </table>
+          <table className='information__table'>
+            <tbody>
+              <tr>
+                <td>Địa chỉ:</td>
+                <td>Địa chỉ cửa hàng</td>
+              </tr>
+              <tr>
+                <td>Số điện thoại:</td>
+                <td>0123456789</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td>artdineease@gmail.com</td>
+              </tr>
+            </tbody>
+          </table>
 
-            <div className="store__description">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                quod, quae, voluptatibus, autem facere dolorum quia nemo
-                temporibus voluptas quibusdam quos. Quisquam, doloremque
-                voluptates. Quisquam, doloremque voluptates.
-              </p>
-            </div>
+          <div className="store__description">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+              quod, quae, voluptatibus, autem facere dolorum quia nemo
+              temporibus voluptas quibusdam quos. Quisquam, doloremque
+              voluptates. Quisquam, doloremque voluptates.
+            </p>
           </div>
         </div>
       </section>

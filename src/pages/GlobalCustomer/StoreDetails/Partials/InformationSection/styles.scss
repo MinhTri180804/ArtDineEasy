@@ -1,0 +1,130 @@
+.about__store-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  justify-content: start;
+  align-items: start;
+
+  //   Styling for section store details about
+  & > .store__details-about {
+    grid-column: 1 / span 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 64px;
+
+    & > .store__introduction {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
+      gap: 24px;
+      width: 100%;
+
+      & > .heading {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .name__store {
+          & > h2 {
+            font-weight: bold;
+            font-size: var(--font-size-desktop-heading-1);
+            color: var(--text-nero-color);
+            text-transform: uppercase;
+          }
+
+          & > .actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 12px;
+          }
+        }
+      }
+
+      & > .tag__food-categories {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      & > .discounts {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      & > .statistic {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24px;
+      }
+
+      & > .actions {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24px;
+      }
+    }
+
+    & > .store__information {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
+      gap: 32px;
+
+      & > .heading {
+        & > h3 {
+          font-size: var(--font-size-desktop-heading-2);
+          color: var(--text-nero-color);
+          font-weight: 600;
+        }
+      }
+
+      & > .information__table,
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 100%;
+        padding: 8px 24px;
+      }
+
+      & > table > tbody > tr {
+        & > td:last-child {
+          font-weight: 400;
+        }
+
+        & > td:first-child {
+          font-weight: 500;
+        }
+      }
+      & > .store__description {
+        & > p {
+          font-size: var(--font-size-desktop-body-1);
+          line-height: 150%;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  //   Styling for section store details information
+  & > .store__details-feedbacks {
+    height: 230px;
+    width: 100%;
+    grid-column: 8 / span 5;
+    background-color: var(--stroke-white-smoke-color);
+  }
+}
