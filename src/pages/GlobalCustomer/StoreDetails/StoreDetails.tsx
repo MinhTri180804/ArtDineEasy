@@ -28,6 +28,10 @@ const StoreDetailsPage = () => {
   console.log(storeId);
   return (
     <>
+      <section className="breadcrumb__section">
+        {/* TODO: implement breadcrumb component in here */}
+      </section>
+
       <section className="store__details-banners">
         <StoreBannerSection banners={mock_banners} />
       </section>
