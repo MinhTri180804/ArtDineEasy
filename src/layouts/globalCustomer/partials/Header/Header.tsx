@@ -11,6 +11,7 @@ import { IDropdownItem } from '../../../../types/components/DropdownItem';
 import { ROUTES_PATH } from '../../../../utils/constant';
 import './styles.scss';
 import LoginModal from '../../../../components/Modals/Auth/Login';
+import RegisterModal from '../../../../components/Modals/Auth/Register';
 
 const HeaderComponent = () => {
   const mockLanguages: IDropdownItem[] = [
@@ -63,15 +64,34 @@ const HeaderComponent = () => {
 
     if (value === 'login') {
       setIsShowOverlay(true);
-      setContentOverlay(<LoginModal onClose={() => setIsShowOverlay(false)} />);
+      setContentOverlay(
+        <LoginModal
+          onClose={() => setIsShowOverlay(false)}
+          onChangeModal={changeRegisterModal}
+        />
+      );
     }
 
     if (value === 'register') {
       setIsShowOverlay(true);
-      setContentOverlay(<div>Register</div>);
+      setContentOverlay(
+        <RegisterModal
+          onChangeModal={changeLoginModal}
+          onClose={() => setIsShowOverlay(false)}
+        />
+      );
     }
   };
 
+  function changeLoginModal() {
+    setIsShowOverlay(false);
+    handlerSelectAccount('login');
+  }
+
+  function changeRegisterModal() {
+    setIsShowOverlay(false);
+    handlerSelectAccount('register');
+  }
   return (
     <header ref={headerRef}>
       <div className="container">
