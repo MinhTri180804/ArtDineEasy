@@ -1,22 +1,29 @@
 import { Link } from 'react-router-dom';
+import { ArrowRightIcon } from '../../assets/icons';
+import { ICategoryOfStore } from '../../types/response/CategoryOfStore/categoryOfStoreType';
 import { ROUTES_PATH } from '../../utils/constant';
 import ButtonComponent from '../commons/Button';
-import banner from '../../assets/images/banner.svg';
-import { ArrowRightIcon } from '../../assets/icons';
 import './styles.scss';
 
-const TypeServiceComponent = () => {
+interface ITypeServiceComponentProps {
+  categoryOfService: ICategoryOfStore;
+}
+
+const TypeServiceComponent = ({
+  categoryOfService,
+}: ITypeServiceComponentProps) => {
+  const { name, description, imageDTOReponese } = categoryOfService;
+
+  if (!categoryOfService) {
+    return null;
+  }
+
   return (
     <div className="type__service-component">
       <div className="content">
-        <div className="title">Nhà hàng</div>
+        <div className="title">{name}</div>
 
-        <div className="description">
-          Mô hình nhà hàng sẽ là nơi sang trọng và những món ăn sẽ phụ thuộc vào
-          phong Mô hình nhà hàng sẽ là nơi sang trọng và những món ăn sẽ phụ
-          thuộc vào phong Mô hình nhà hàng sẽ là nơi sang trọng và những món ăn
-          sẽ phụ thuộc vào phong
-        </div>
+        <div className="description">{description}</div>
 
         <Link to={ROUTES_PATH.DEFAULT}>
           <ButtonComponent
@@ -30,7 +37,7 @@ const TypeServiceComponent = () => {
       </div>
 
       <div className="images">
-        <img src={banner} alt="" />
+        <img src={imageDTOReponese.url} alt="" />
       </div>
     </div>
   );
