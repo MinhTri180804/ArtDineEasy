@@ -35,7 +35,9 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
           localStorage.setItem('authentication', JSON.stringify(result));
 
           const res = await userApi.getInfo();
-          console.log(res);
+          // Implement logic to save user info to local storage
+
+          return Promise.resolve();
         }
 
         return Promise.reject(message);
@@ -49,6 +51,7 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
         },
         success: {
           render: () => {
+            onClose();
             setButtonLoading(false);
             return 'Đăng nhập thành công';
           },
