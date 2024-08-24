@@ -1,24 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { banner } from '../../../assets/images/index';
+import useQueryStore from '../../../hooks/queries/useQueryStore';
 import AboutStoreSection from './Partials/InformationSection';
 import { StoreBannerSection } from './Partials/StoreBannerSection/StoreBannerSection';
 import './styles.scss';
-import useQueryStore from '../../../hooks/queries/useQueryStore';
-
-const mock_banners = [
-  {
-    id: 1,
-    image: banner,
-  },
-  {
-    id: 2,
-    image: banner,
-  },
-  {
-    id: 3,
-    image: banner,
-  },
-];
 
 const StoreDetailsPage = () => {
   const { storeId } = useParams<Record<string, string>>();
