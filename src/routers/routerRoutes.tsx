@@ -12,7 +12,10 @@ const RouterRoutes = () => {
     <Routes>
       <Route path={ROUTES_PATH.DEFAULT} element={<GlobalCustomerLayout />}>
         <Route path={ROUTES_PATH.DEFAULT} element={<HomePage />} />
-        <Route path={ROUTES_PATH.STORE_DETAIL} element={<StoreDetailsPage />} />
+        <Route
+          path={`${ROUTES_PATH.STORE_DETAIL}/:storeId`}
+          element={<StoreDetailsPage />}
+        />
       </Route>
 
       {/* <Route path='/host' element={}/> */}

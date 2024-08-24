@@ -3,16 +3,28 @@ import FeedbackAction from '../../../../../components/Store/partials/FeedbackAct
 import StarAction from '../../../../../components/Store/partials/StarAction';
 import TagFoodCategory from '../../../../../components/TagFoodCategory';
 import ButtonComponent from '../../../../../components/commons/Button';
+import { IAttributeResponseList } from '../../../../../types/response/Store/storeType';
 import './styles.scss';
 
-const AboutStoreSection = () => {
+interface IAboutStoreSectionProps {
+  // Props here
+  name: string;
+  attributesTable: IAttributeResponseList[];
+  description: string;
+}
+
+const AboutStoreSection = ({
+  name,
+  attributesTable,
+  description,
+}: IAboutStoreSectionProps) => {
   return (
     <div className="about__store-container">
       <section className="store__details-about">
         <div className="store__introduction">
           <div className="heading">
             <div className="name__store">
-              <h2>TÊN CỬA HÀNG</h2>
+              <h2>{name}</h2>
             </div>
 
             <div className="actions">
@@ -65,30 +77,19 @@ const AboutStoreSection = () => {
             <h3>Thông tin cửa hàng</h3>
           </div>
 
-          <table className='information__table'>
+          <table className="information__table">
             <tbody>
-              <tr>
-                <td>Địa chỉ:</td>
-                <td>Địa chỉ cửa hàng</td>
-              </tr>
-              <tr>
-                <td>Số điện thoại:</td>
-                <td>0123456789</td>
-              </tr>
-              <tr>
-                <td>Email:</td>
-                <td>artdineease@gmail.com</td>
-              </tr>
+              {attributesTable.map((attribute, index) => (
+                <tr key={`${index}-${index}`}>
+                  <td>{attribute.atrributeName}</td>
+                  <td>{attribute.attributeValue}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
 
           <div className="store__description">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-              quod, quae, voluptatibus, autem facere dolorum quia nemo
-              temporibus voluptas quibusdam quos. Quisquam, doloremque
-              voluptates. Quisquam, doloremque voluptates.
-            </p>
+            <p>{description}</p>
           </div>
         </div>
       </section>

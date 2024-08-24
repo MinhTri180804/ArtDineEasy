@@ -3,18 +3,17 @@ import './styles.scss';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
+import { IImage } from '../../../../../types/core/Image/imageType';
 
 interface IStoreBannerSectionProps {
   // This is mock interface for banners filed in StoreBannerSection component
-  banners: {
-    id: number;
-    image: string;
-  }[];
+  banners: IImage[];
 }
 
 const DELAY_TIME = 1000;
 
 const StoreBannerSection = ({ banners }: IStoreBannerSectionProps) => {
+  console.log(banners);
   return (
     <div className="store__banners-section">
       <Swiper
@@ -27,7 +26,7 @@ const StoreBannerSection = ({ banners }: IStoreBannerSectionProps) => {
       >
         {banners.map((banner, index) => (
           <SwiperSlide key={index}>
-            <img src={banner.image} alt="banner" className="banner__image" />
+            <img src={banner.url} alt="banner" className="banner__image" />
           </SwiperSlide>
         ))}
       </Swiper>

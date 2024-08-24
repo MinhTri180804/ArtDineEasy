@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ITopicFoodStore } from '../../types/response/Topic/topicType';
 import DiscountTagComponent from '../DiscountTag';
 import TagFoodCategory from '../TagFoodCategory';
@@ -5,6 +6,7 @@ import FeedbackAction from './partials/FeedbackAction';
 import MoreAction from './partials/MoreAction';
 import StarAction from './partials/StarAction';
 import './styles.scss';
+import { ROUTES_PATH } from '../../utils/constant';
 
 interface IStoreComponentProps {
   store: ITopicFoodStore;
@@ -21,11 +23,14 @@ const mockDiscount = [
 ];
 
 const StoreComponent = ({ store }: IStoreComponentProps) => {
-  const { imageDTOReponese, name, description } = store;
+  const { imageDTOReponese, name, description, id } = store;
+
   return (
     <div className="store__component">
       <div className="store__image">
-        <img src={imageDTOReponese.url} alt="" />
+        <Link to={`${ROUTES_PATH.STORE_DETAIL}/${id}`}>
+          <img src={imageDTOReponese.url} alt={name} />
+        </Link>
       </div>
       <div className="store__food-tags">
         {mockTags.slice(1).map((tag, index) => (
@@ -34,7 +39,9 @@ const StoreComponent = ({ store }: IStoreComponentProps) => {
         <TagFoodCategory plus={3} />
       </div>
       <div className="store__name">
-        <h2>{name}</h2>
+        <h2>
+          <Link to={`${ROUTES_PATH.STORE_DETAIL}/${id}`}>{name}</Link>
+        </h2>
       </div>
       <div className="store__description">
         <p>{description}</p>

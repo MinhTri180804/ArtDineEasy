@@ -12,7 +12,7 @@
     overflow: hidden;
     border-radius: 4px;
 
-    & > img {
+    & a > img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -29,7 +29,7 @@
   }
 
   .store__name {
-    & > h2 {
+    & > h2 > a {
       cursor: pointer;
       font-size: var(--font-size-desktop-heading-3);
       font-weight: bold;

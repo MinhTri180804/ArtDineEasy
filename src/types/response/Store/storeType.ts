@@ -1,11 +1,17 @@
+import { IImage } from '../../core/Image/imageType';
+
 export interface IStore {
+  id: number;
   foodStoreId: number;
   name: string;
   address: string;
   description: string;
-  phoneNumber: string;
-  multipartFiles: string[];
-  typeOfImage: string;
-  email: string;
-  categoryId: number;
+  imageDTOReponeseList: IImage[];
+  attributeResponeseList: IAttributeResponseList[];
+}
+
+export interface IAttributeResponseList {
+  id: number;
+  attributeValue: string;
+  atrributeName: string;
 }
