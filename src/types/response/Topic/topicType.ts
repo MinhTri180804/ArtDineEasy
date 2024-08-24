@@ -7,7 +7,10 @@ export interface ITopicRestaurant {
   topicFoodStores: ITopicFoodStore[];
 }
 
-interface ITopicFoodStore
-  extends Pick<IStore, 'name' | 'address' | 'description'> {
-  imageDTOResponse: IImage;
+export interface ITopicFoodStore
+  extends Omit<
+    IStore,
+    'categoryId' | 'email' | 'typeOfImage' | 'multipartFiles' | 'phoneNumber'
+  > {
+  imageDTOReponese: IImage;
 }

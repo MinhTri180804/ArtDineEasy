@@ -11,6 +11,7 @@ const API_ENDPOINT = {
 
 const QUERY_KEY = {
   TOPIC_RESTAURANT: 'topicRestaurant',
+  CATEGORY_OF_STORE: 'categoryOfStore',
 };
 
 export { ROUTES_PATH, API_ENDPOINT, QUERY_KEY };

@@ -11,6 +11,7 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.response.use(
   (response) => response,
+
   (error) => {
     if (error.response.status === 401) {
       // TODO: handle 401 error

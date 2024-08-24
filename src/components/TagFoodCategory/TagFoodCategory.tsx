@@ -1,6 +1,6 @@
 import './styles.scss';
 interface ITagFoodCategoryProps {
-  content: string;
+  content?: string;
   plus?: number;
   size?: 'small' | 'medium' | 'large';
 }

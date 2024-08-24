@@ -2,7 +2,7 @@
   .type__service-container {
     & > .content {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       gap: 24px;
       flex-wrap: wrap;
@@ -10,6 +10,7 @@
       & > .type__service-component {
         flex: 1;
         transition: box-shadow 0.3s;
+        align-self: stretch;
 
         &:hover {
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
