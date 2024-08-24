@@ -4,10 +4,10 @@ import { API_ENDPOINT } from '../../utils/constant';
 import axiosClient from '../axiosClient';
 
 const topicRestaurantApi = {
-  getAll: () =>
-    axiosClient.get<ICoreResponse<ITopicRestaurant[]>>(
-      API_ENDPOINT.TOPIC_RESTAURANT
-    ).then(response => response),
+  getAll: async () =>
+    axiosClient
+      .get<ICoreResponse<ITopicRestaurant[]>>(API_ENDPOINT.TOPIC_RESTAURANT)
+      .then((response) => response),
 };
 
 export default topicRestaurantApi;

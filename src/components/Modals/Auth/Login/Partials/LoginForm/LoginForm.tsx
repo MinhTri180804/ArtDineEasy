@@ -4,13 +4,21 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 import ButtonComponent from '../../../../../commons/Button';
 import InputPasswordField from '../../../../../commons/Field/InputPassword';
+import authApi from '../../../../../../Api/Auth/authApi';
+import { ILoginRequest } from '../../../../../../types/request/Login/loginType';
+import { toast } from 'react-toastify';
+import 'react-toastify/ReactToastify.css';
+import { useState } from 'react';
+import userApi from '../../../../../../Api/User/userApi';
 
-interface IFormLogin {
-  email: string;
-  password: string;
+interface IFormLogin extends ILoginRequest {}
+interface ILoginFormProps {
+  onClose: () => void;
 }
 
-const LoginForm = () => {
+const LoginForm = ({ onClose }: ILoginFormProps) => {
+  const [buttonLoading, setButtonLoading] = useState<boolean>(false);
+
   const {
     register,
     formState: { errors },
@@ -18,7 +26,41 @@ const LoginForm = () => {
   } = useForm<IFormLogin>();
 
   const handleLogin: SubmitHandler<IFormLogin> = (data) => {
-    console.log(data);
+    toast.promise(
+      async () => {
+        const res = await authApi.login(data);
+        const { status, message, result } = res;
+        // TODO: implement validate status code of response ( in now, backend mock status code 1000);
+        if (result) {
+          localStorage.setItem('authentication', JSON.stringify(result));
+
+          const res = await userApi.getInfo();
+          console.log(res);
+        }
+
+        return Promise.reject(message);
+      },
+      {
+        pending: {
+          render: () => {
+            setButtonLoading(true);
+            return 'Đang xử lý...';
+          },
+        },
+        success: {
+          render: () => {
+            setButtonLoading(false);
+            return 'Đăng nhập thành công';
+          },
+        },
+        error: {
+          render: (error) => {
+            setButtonLoading(false);
+            return `Đăng nhập thất bại: ${error}`;
+          },
+        },
+      }
+    );
   };
   return (
     <form
@@ -44,7 +86,7 @@ const LoginForm = () => {
         {...register('password', {
           required: 'Mật khẩu không được để trống',
           minLength: {
-            value: 6,
+            value: 3,
             message: 'Mật khẩu phải lớn hơn 6 ký tự',
           },
         })}
@@ -62,7 +104,12 @@ const LoginForm = () => {
         </div>
       </div>
 
-      <ButtonComponent content="Đăng nhập" size="40" type="primary" />
+      <ButtonComponent
+        content="Đăng nhập"
+        size="40"
+        type="primary"
+        loading={buttonLoading}
+      />
     </form>
   );
 };

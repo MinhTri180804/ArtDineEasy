@@ -3,7 +3,7 @@ import { ICategoryOfStore } from '../../types/response/CategoryOfStore/categoryO
 import axiosClient from '../axiosClient';
 
 const categoryOfStoreApi = {
-  getAll: () => {
+  getAll: async () => {
     return axiosClient.get<ICoreResponse<ICategoryOfStore[]>>(
       '/CategoryOfFoodStore'
     );

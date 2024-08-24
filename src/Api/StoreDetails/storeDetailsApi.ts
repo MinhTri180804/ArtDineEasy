@@ -4,7 +4,7 @@ import { API_ENDPOINT } from '../../utils/constant';
 import axiosClient from '../axiosClient';
 
 const storeDetailsApi = {
-  get: (id: string | number) => {
+  get: async (id: string | number) => {
     return axiosClient.get<ICoreResponse<IStore>>(
       `/${API_ENDPOINT.STORE_DETAIL}/${id}`
     );

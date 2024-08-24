@@ -37,7 +37,7 @@ const LoginModal = ({ onClose, onChangeModal }: ILoginModalProps) => {
         </div>
 
         <div className="login__form">
-          <LoginForm />
+          <LoginForm onClose={onClose} />
         </div>
 
         <div className="footer">
