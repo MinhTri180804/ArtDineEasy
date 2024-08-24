@@ -77,16 +77,18 @@ const AboutStoreSection = ({
             <h3>Thông tin cửa hàng</h3>
           </div>
 
-          <table className="information__table">
-            <tbody>
-              {attributesTable.map((attribute, index) => (
-                <tr key={`${index}-${index}`}>
-                  <td>{attribute.atrributeName}</td>
-                  <td>{attribute.attributeValue}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          {attributesTable.length > 0 && (
+            <table className="information__table">
+              <tbody>
+                {attributesTable.map((attribute, index) => (
+                  <tr key={`${index}-${index}`}>
+                    <td>{attribute.atrributeName}</td>
+                    <td>{attribute.attributeValue}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
 
           <div className="store__description">
             <p>{description}</p>
