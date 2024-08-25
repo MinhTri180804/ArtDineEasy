@@ -3,4 +3,8 @@
   flex-direction: column;
   gap: 42px;
   width: 100%;
+
+  & > .menu__section {
+    margin-top: 46px;
+  }
 }

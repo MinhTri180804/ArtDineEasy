@@ -25,16 +25,16 @@ const DishComponent = () => {
             ut, nobis odio ipsum asperiores.
           </div>
         </div>
-      </div>
 
-      <div className="footer">
-        <div className="footer__price">
-          <div className="value">250.000 VNĐ</div>
-        </div>
+        <div className="footer">
+          <div className="footer__price">
+            <div className="value">250.000 VNĐ</div>
+          </div>
 
-        <div className="footer__actions">
-          <div className="action__favorite">
-            <HeartIcon />
+          <div className="footer__actions">
+            <div className="action__favorite">
+              <HeartIcon />
+            </div>
           </div>
         </div>
       </div>
