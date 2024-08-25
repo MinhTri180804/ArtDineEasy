@@ -1,3 +1,4 @@
+import { HeartIcon } from './Heart';
 import { ArrowDownIcon } from './ArrowDownIcon';
 import { UserIcon } from './UserIcon';
 import { ArrowRightIcon } from './ArrowRightIcon';
@@ -21,4 +22,5 @@ export {
   CloseIcon,
   EyeIcon,
   EyeSlashIcon,
+  HeartIcon,
 };

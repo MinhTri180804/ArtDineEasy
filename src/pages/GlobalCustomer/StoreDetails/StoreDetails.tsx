@@ -3,6 +3,7 @@ import useQueryStore from '../../../hooks/queries/useQueryStore';
 import AboutStoreSection from './Partials/InformationSection';
 import { StoreBannerSection } from './Partials/StoreBannerSection/StoreBannerSection';
 import './styles.scss';
+import MenuSection from './Partials/MenuSection';
 
 const StoreDetailsPage = () => {
   const { storeId } = useParams<Record<string, string>>();
@@ -49,7 +50,7 @@ const StoreDetailsPage = () => {
         </section>
 
         <section className="menu__section">
-          {/* TODO: implement menu of store in here */}
+          <MenuSection />
         </section>
       </div>
     </>
