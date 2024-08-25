@@ -1,15 +1,14 @@
-import './styles.scss';
-import { banner } from '../../assets/images';
 import { HeartIcon } from '../../assets/icons';
-import StarAction from '../Store/partials/StarAction';
 import { IDishType } from '../../types/response/Dish/dishType';
+import StarAction from '../Store/partials/StarAction';
+import './styles.scss';
 
 interface IDishComponentProps {
   dishData: IDishType;
 }
 
 const DishComponent = ({ dishData }: IDishComponentProps) => {
-  const { id, description, price, productName, images } = dishData;
+  const { description, price, productName, images } = dishData;
   return (
     <div className="dish__component">
       <div className="dish__component-image">
