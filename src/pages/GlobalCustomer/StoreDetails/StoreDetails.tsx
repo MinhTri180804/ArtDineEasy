@@ -12,6 +12,7 @@ const StoreDetailsPage = () => {
   // TODO: refactor validate storeId in here
   if (!storeId) {
     navigate('/404');
+    return;
   }
 
   const { data, isLoading, error } = useQueryStore(storeId ?? '');
@@ -50,7 +51,7 @@ const StoreDetailsPage = () => {
         </section>
 
         <section className="menu__section">
-          <MenuSection />
+          <MenuSection idStore={storeId} />
         </section>
       </div>
     </>

@@ -4,12 +4,12 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 import ButtonComponent from '../../../../../commons/Button';
 import InputPasswordField from '../../../../../commons/Field/InputPassword';
-import authApi from '../../../../../../Api/Auth/authApi';
+// import authApi from '../../../../../../Api/Auth/authApi';
 import { ILoginRequest } from '../../../../../../types/request/Login/loginType';
 import { toast } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
 import { useState } from 'react';
-import userApi from '../../../../../../Api/User/userApi';
+// import userApi from '../../../../../../Api/User/userApi';
 
 interface IFormLogin extends ILoginRequest {}
 interface ILoginFormProps {
@@ -25,22 +25,22 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
     handleSubmit,
   } = useForm<IFormLogin>();
 
-  const handleLogin: SubmitHandler<IFormLogin> = (data) => {
+  const handleLogin: SubmitHandler<IFormLogin> = (_) => {
     toast.promise(
       async () => {
-        const res = await authApi.login(data);
-        const { status, message, result } = res;
+        // const res = await authApi.login(data);
+        // const { status, message, result } = res;
         // TODO: implement validate status code of response ( in now, backend mock status code 1000);
-        if (result) {
-          localStorage.setItem('authentication', JSON.stringify(result));
+        if (true) {
+          // localStorage.setItem('authentication', JSON.stringify(result));
 
-          const res = await userApi.getInfo();
+          // const res = await userApi.getInfo();
           // Implement logic to save user info to local storage
 
           return Promise.resolve();
         }
 
-        return Promise.reject(message);
+        // return Promise.reject(message);
       },
       {
         pending: {

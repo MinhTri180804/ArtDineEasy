@@ -1,0 +1,7 @@
+.nav__tag-section-menu--component {
+  position: sticky;
+  top: 200px;
+  & .swiper-slide {
+    width: fit-content;
+  }
+}

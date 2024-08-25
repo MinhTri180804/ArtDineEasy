@@ -1,0 +1,22 @@
+.tag__menu-section--component {
+  width: fit-content;
+  padding: 16px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+  cursor: pointer;
+
+  &.active {
+    border-color: var(--main-primary-color);
+
+    & > .title {
+      color: var(--main-primary-color);
+    }
+  }
+
+  & > .title {
+    font-size: var(--font-size-desktop-heading-3);
+    font-weight: 400;
+    color: var(--stroke-light-grey-color);
+    transition: color 0.3s ease-in-out;
+  }
+}

@@ -1,4 +1,10 @@
 .menu__section {
+  position: relative;
+  .menu__section-nav {
+    position: sticky;
+    top: 76px;
+    background-color: white;
+  }
   .menu__section-content {
     padding: 46px 0px;
     background: rgba(217, 217, 217, 0.26);
