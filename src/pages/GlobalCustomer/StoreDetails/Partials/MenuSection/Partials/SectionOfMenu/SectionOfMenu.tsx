@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import DishComponent from '../../../../../../../components/Dish';
 import { IDishType } from '../../../../../../../types/response/Dish/dishType';
 import './styles.scss';
@@ -12,7 +11,6 @@ interface ISectionOfMenuComponentProps {
 const SectionOfMenuComponent = ({
   sectionOfMenuData,
   sectionName,
-  sectionId,
 }: ISectionOfMenuComponentProps) => {
   return (
     <div className="section__of-menu--component ">
