@@ -13,6 +13,14 @@ const authApi = {
       })
       .then((response) => response.data);
   },
+
+  logout: async (token: string) => {
+    return axiosClient
+      .post<ICoreResponse<ILoginResponse>>(`${API_ENDPOINT.LOGOUT}`, {
+        token,
+      })
+      .then((response) => response.data);
+  }
 };
 
 export default authApi;

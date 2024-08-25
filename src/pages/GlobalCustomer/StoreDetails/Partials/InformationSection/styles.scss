@@ -82,6 +82,7 @@
       justify-content: flex-start;
       align-items: start;
       gap: 32px;
+      width: 100%;
 
       & > .heading {
         & > h3 {
@@ -102,12 +103,21 @@
       }
 
       & > table > tbody > tr {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        & > td {
+          flex: 1;
+        }
         & > td:last-child {
+          width: 100%;
           font-weight: 400;
         }
 
         & > td:first-child {
           font-weight: 500;
+          width: 100%;
         }
       }
       & > .store__description {

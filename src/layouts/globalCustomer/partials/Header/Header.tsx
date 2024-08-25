@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, json } from 'react-router-dom';
 import { ArrowDownIcon, UserIcon } from '../../../../assets/icons';
 import flagUS from '../../../../assets/images/FlagUS.svg';
 import flagVN from '../../../../assets/images/FlagVN.svg';
@@ -12,8 +12,15 @@ import { ROUTES_PATH } from '../../../../utils/constant';
 import './styles.scss';
 import LoginModal from '../../../../components/Modals/Auth/Login';
 import RegisterModal from '../../../../components/Modals/Auth/Register';
+import { IUserInfoResponse } from '../../../../types/response/UserInfo/userInfoType';
+import { toast } from 'react-toastify';
+import authApi from '../../../../Api/Auth/authApi';
 
 const HeaderComponent = () => {
+  const user = JSON.parse(
+    localStorage.getItem('userInfo') || 'null'
+  ) as IUserInfoResponse | null;
+
   const mockLanguages: IDropdownItem[] = [
     {
       ImageRight: flagVN,
@@ -27,7 +34,7 @@ const HeaderComponent = () => {
     },
   ];
 
-  const mockAuth: IDropdownItem[] = [
+  const dropdownActionAccount: IDropdownItem[] = [
     {
       content: 'Đăng nhập',
       value: 'login',
@@ -38,12 +45,18 @@ const HeaderComponent = () => {
     },
   ];
 
+  const dropdownOptionAccount: IDropdownItem[] = [
+    {
+      content: 'Đăng xuất',
+      value: 'logout',
+    },
+  ];
+
   const [isShowOverlay, setIsShowOverlay] = useState(false);
   const [contentOverlay, setContentOverlay] = useState<React.ReactNode | null>(
     null
   );
   const headerRef = useRef<HTMLHeadElement>(null);
-
   document.addEventListener('scroll', () => {
     const header = headerRef.current;
     if (header) {
@@ -60,7 +73,8 @@ const HeaderComponent = () => {
   };
 
   const handlerSelectAccount = (value: string | number) => {
-    if (value !== 'login' && value !== 'register') return null;
+    if (value !== 'login' && value !== 'register' && value !== 'logout')
+      return null;
 
     if (value === 'login') {
       setIsShowOverlay(true);
@@ -81,6 +95,40 @@ const HeaderComponent = () => {
         />
       );
     }
+
+    if (value === 'logout') {
+      toast.promise(
+        authApi.logout(
+          JSON.parse(localStorage.getItem('authentication') || 'null').token
+        ),
+        {
+          pending: {
+            render: () => {
+              return 'Đang xử lý...';
+            },
+          },
+          success: {
+            render: () => {
+              localStorage.removeItem('userInfo');
+              localStorage.removeItem('authentication');
+              setIsShowOverlay(true);
+              setContentOverlay(
+                <LoginModal
+                  onClose={() => setIsShowOverlay(false)}
+                  onChangeModal={changeRegisterModal}
+                />
+              );
+              return 'Đăng xuất thành công';
+            },
+          },
+          error: {
+            render: (error) => {
+              return `Đăng xuất thất bại: ${error}`;
+            },
+          },
+        }
+      );
+    }
   };
 
   function changeLoginModal() {
@@ -92,6 +140,7 @@ const HeaderComponent = () => {
     setIsShowOverlay(false);
     handlerSelectAccount('register');
   }
+
   return (
     <header ref={headerRef}>
       <div className="container">
@@ -116,17 +165,32 @@ const HeaderComponent = () => {
             </Dropdown>
           </div>
 
-          <div className="header__actions-account">
-            <Dropdown title="Đăng nhập / Đăng ký" ImageRight={UserIcon}>
-              {mockAuth.map((item, index) => (
-                <DropdownChildren
-                  key={index}
-                  itemData={item}
-                  handleSelect={handlerSelectAccount}
-                />
-              ))}
-            </Dropdown>
-          </div>
+          {!user && (
+            <div className="header__actions-account">
+              <Dropdown title="Đăng nhập / Đăng ký" ImageRight={UserIcon}>
+                {dropdownActionAccount.map((item, index) => (
+                  <DropdownChildren
+                    key={index}
+                    itemData={item}
+                    handleSelect={handlerSelectAccount}
+                  />
+                ))}
+              </Dropdown>
+            </div>
+          )}
+          {user && (
+            <div className="header__account">
+              <Dropdown title={`${user.firstName} ${user.lastName}`}>
+                {dropdownOptionAccount.map((item, index) => (
+                  <DropdownChildren
+                    key={index}
+                    itemData={item}
+                    handleSelect={handlerSelectAccount}
+                  />
+                ))}
+              </Dropdown>
+            </div>
+          )}
         </div>
       </div>
 

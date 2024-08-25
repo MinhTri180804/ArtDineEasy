@@ -15,6 +15,7 @@ const API_ENDPOINT = {
   LOGIN: `${AUTH}/login`,
   REGISTER: `${AUTH}/register`,
   INFO: `${API}/${USER}/myinfo`,
+  LOGOUT: `${AUTH}/logout`,
 };
 
 const QUERY_KEY = {

@@ -82,8 +82,8 @@ const AboutStoreSection = ({
               <tbody>
                 {attributesTable.map((attribute, index) => (
                   <tr key={`${index}-${index}`}>
-                    <td>{attribute.atrributeName}</td>
-                    <td>{attribute.attributeValue}</td>
+                    <td className="name">{attribute.atrributeName}</td>
+                    <td className="value">{attribute.attributeValue}</td>
                   </tr>
                 ))}
               </tbody>
