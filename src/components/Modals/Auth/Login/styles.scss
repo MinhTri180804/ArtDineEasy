@@ -4,6 +4,11 @@
   background-color: var(--main-white-color);
   border-radius: 4px;
   min-width: 522px;
+  max-width: 100%;
+
+  @media screen and (max-width: 768px) {
+    min-width: 100%;
+  }
 
   & > .close {
     position: absolute;

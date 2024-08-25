@@ -22,6 +22,8 @@ const userApi = {
     );
     return res.data;
   },
+
+  
 };
 
 export default userApi;

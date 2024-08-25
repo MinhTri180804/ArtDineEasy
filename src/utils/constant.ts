@@ -13,7 +13,8 @@ const API_ENDPOINT = {
   TOPIC_RESTAURANT: 'Topic',
   STORE_DETAIL: 'FoodStore',
   LOGIN: `${AUTH}/login`,
-  REGISTER: `${AUTH}/register`,
+  REGISTER: `${API}/user`,
+  REGISTER_OTP: `${AUTH}/${API}/send-verify-register`,
   INFO: `${API}/${USER}/myinfo`,
   LOGOUT: `${AUTH}/logout`,
 };

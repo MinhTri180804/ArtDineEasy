@@ -1,0 +1,33 @@
+.register__otp {
+  #otp-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    & > .form-group {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  #otp-form input {
+    border: none;
+    background-color: rgba(128, 128, 128, 0.008);
+    color: var(--main-primary-color);
+    font-size: 32px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    outline: 2px solid var(--main-primary-color);
+  }
+  #otp-form input:focus-visible {
+    outline: 2px solid var(--main-primary-color);
+  }
+  #otp-form input.filled {
+    outline: 2px solid rgb(7, 192, 99);
+  }
+}

@@ -4,5 +4,6 @@ import logoBrand from './logo.svg';
 import flagVN from './FlagVN.svg';
 import flagUS from './FlagUS.svg';
 import banner from './banner.svg';
+import empty from './empty.jpg';
 
-export { googleLogo, flagUS, flagVN, logoBrand, logoBrandWhite, banner };
+export { empty, googleLogo, flagUS, flagVN, logoBrand, logoBrandWhite, banner };

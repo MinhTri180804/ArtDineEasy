@@ -57,7 +57,7 @@ const StoreSwiperSection = ({
         spaceBetween={24}
         slidesPerView={4}
         className="mySwiper"
-        cssMode
+        // cssMode
         mousewheel={true}
         modules={[Mousewheel]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}

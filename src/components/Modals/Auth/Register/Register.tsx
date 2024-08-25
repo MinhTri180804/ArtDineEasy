@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { CloseIcon } from '../../../../assets/icons';
 import { googleLogo } from '../../../../assets/images';
 import FooterAuthModal from '../Partials/Footer';
 import HeadingAuthModal from '../Partials/Heading';
 import RegisterForm from './RegisterForm';
 import './styles.scss';
+import OTPRegisterModal from '../OTPRegister';
 
 interface IRegisterModalProps {
   onClose: () => void;
@@ -11,6 +13,21 @@ interface IRegisterModalProps {
 }
 
 const RegisterModal = ({ onClose, onChangeModal }: IRegisterModalProps) => {
+  const [isShowOTP, setIsShowOTP] = useState(false);
+
+  const onOpenOTP = () => {
+    setIsShowOTP(true);
+  };
+
+  const onCloseOTP = () => {
+    setIsShowOTP(false);
+    onClose();
+  };
+
+  if (isShowOTP) {
+    return <OTPRegisterModal onClose={onCloseOTP} />;
+  }
+
   return (
     <div className="register__modal">
       <div className="close" onClick={onClose}>
@@ -25,7 +42,7 @@ const RegisterModal = ({ onClose, onChangeModal }: IRegisterModalProps) => {
         </section>
 
         <div className="register__form">
-          <RegisterForm />
+          <RegisterForm onClose={onClose} onOpenOTP={onOpenOTP} />
         </div>
 
         <div className="or">

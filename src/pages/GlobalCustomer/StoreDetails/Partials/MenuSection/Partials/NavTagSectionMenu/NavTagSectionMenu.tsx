@@ -16,7 +16,7 @@ const NavTagSectionMenuComponent = ({
   tagList,
   onTagClick,
 }: INavTagSectionMenuComponentProps) => {
-  const [activeTag, setActiveTag] = useState<string>(tagList[0].id);
+  const [activeTag, setActiveTag] = useState<string>(tagList[0]?.id );
 
   const handleClick = (idTag: string) => {
     setActiveTag(idTag);

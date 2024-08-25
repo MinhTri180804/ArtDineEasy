@@ -3,6 +3,7 @@ import SectionOfMenuComponent from './Partials/SectionOfMenu';
 import NavTagSectionMenuComponent from './Partials/NavTagSectionMenu';
 import useQueryMenuOfStore from '../../../../../hooks/queries/useQueryMenuOfStore';
 import { useRef } from 'react';
+import { empty } from '../../../../../assets/images';
 
 interface IMenuSectionProps {
   idStore: string | number;
@@ -37,13 +38,31 @@ const MenuSection = ({ idStore }: IMenuSectionProps) => {
   };
 
   const { result: sectionList } = data;
-  const sectionFormat = sectionList.map((section) => {
+  const sectionFormat = sectionList?.map((section) => {
     return {
-      id: section.id,
-      title: section.sectionName,
-      data: section.productResponeseDTOSet.content,
+      id: section?.id,
+      title: section?.sectionName,
+      data: section?.productResponeseDTOSet.content,
     };
   });
+
+  if (data.result.length === 0) {
+    return (
+      <div className="menu__section-empty">
+        <div className="container">
+          <div className="empty__menu">
+            <div className="image">
+              <img src={empty} alt="" />
+            </div>
+
+            <div className="text">
+              Cửa hàng chưa cập nhật thực đơn. Vui lòng quay lại sau!
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="menu__section">
@@ -57,10 +76,10 @@ const MenuSection = ({ idStore }: IMenuSectionProps) => {
       </div>
 
       <div className="menu__section-content">
-        {sectionList.map((section, index) => (
+        {sectionList?.map((section, index) => (
           <div
             key={index}
-            ref={(el) => (sectionRefs.current[section.id] = el)}
+            ref={(el) => (sectionRefs.current[section?.id] = el)}
             className="container"
           >
             <SectionOfMenuComponent

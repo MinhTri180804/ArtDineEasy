@@ -2,6 +2,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import InputField from '../../../../commons/Field/Input';
 import './styles.scss';
 import ButtonComponent from '../../../../commons/Button';
+import authApi from '../../../../../Api/Auth/authApi';
+import { toast } from 'react-toastify';
 
 interface IRegisterForm {
   firstName: string;
@@ -12,14 +14,43 @@ interface IRegisterForm {
   confirmPassword: string;
 }
 
-const RegisterForm = () => {
+interface IRegisterFormProps {
+  onClose: () => void;
+  onOpenOTP: () => void;
+}
+
+const RegisterForm = ({ onOpenOTP }: IRegisterFormProps) => {
   const {
     register,
     formState: { errors },
     handleSubmit,
+    getValues,
   } = useForm<IRegisterForm>();
-  const handleRegister: SubmitHandler<IRegisterForm> = (data) => {
-    console.log(data);
+  const handleRegister: SubmitHandler<IRegisterForm> = async (data) => {
+    const { firstName, lastName, email, password, phone } = data;
+
+    await authApi
+      .registerOTP({
+        firstName,
+        lastName,
+        email,
+        phoneNumber: phone,
+        password,
+      })
+      .then((response) => {
+        toast.warning('Nhập mã OTP để xác thực tài khoản');
+        localStorage.setItem('OTP-code', JSON.stringify(response.result));
+
+        localStorage.setItem(
+          'infoRegister',
+          JSON.stringify({ firstName, lastName, email, phone, password })
+        );
+        onOpenOTP();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Đăng ký thất bại');
+      });
   };
   return (
     <form
@@ -92,9 +123,7 @@ const RegisterForm = () => {
           {...register('confirmPassword', {
             required: 'Nhập lại mật khẩu không được để trống',
             validate: (value) =>
-              value ===
-                (document.getElementById('password') as HTMLInputElement)
-                  ?.value || 'Mật khẩu không khớp',
+              value === getValues('password') || 'Mật khẩu không khớp',
           })}
           error={errors.confirmPassword?.message}
         />

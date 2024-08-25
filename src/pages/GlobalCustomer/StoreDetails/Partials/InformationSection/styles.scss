@@ -15,6 +15,10 @@
     align-items: start;
     gap: 64px;
 
+    @media screen and (max-width: 768px) {
+      grid-column: 1 / span 12;
+    }
+
     & > .store__introduction {
       display: flex;
       flex-direction: column;
@@ -28,6 +32,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          gap: 12px;
+        }
         .name__store {
           & > h2 {
             font-weight: bold;
@@ -136,5 +145,9 @@
     width: 100%;
     grid-column: 8 / span 5;
     background-color: var(--stroke-white-smoke-color);
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 }
