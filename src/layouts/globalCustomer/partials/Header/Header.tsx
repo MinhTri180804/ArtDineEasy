@@ -1,25 +1,55 @@
 import { useRef, useState } from 'react';
-import { Link, json } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import authApi from '../../../../Api/Auth/authApi';
 import { ArrowDownIcon, UserIcon } from '../../../../assets/icons';
 import flagUS from '../../../../assets/images/FlagUS.svg';
 import flagVN from '../../../../assets/images/FlagVN.svg';
 import logo from '../../../../assets/images/logo.svg';
+import LoginModal from '../../../../components/Modals/Auth/Login';
+import RegisterModal from '../../../../components/Modals/Auth/Register';
 import OverlayComponent from '../../../../components/Overlay';
 import Dropdown from '../../../../components/commons/Dropdown';
 import DropdownChildren from '../../../../components/commons/Dropdown/Partials/DropdownChildren';
 import { IDropdownItem } from '../../../../types/components/DropdownItem';
+import { IUserInfoResponse } from '../../../../types/response/UserInfo/userInfoType';
 import { ROUTES_PATH } from '../../../../utils/constant';
 import './styles.scss';
-import LoginModal from '../../../../components/Modals/Auth/Login';
-import RegisterModal from '../../../../components/Modals/Auth/Register';
-import { IUserInfoResponse } from '../../../../types/response/UserInfo/userInfoType';
-import { toast } from 'react-toastify';
-import authApi from '../../../../Api/Auth/authApi';
 
 const HeaderComponent = () => {
   const user = JSON.parse(
     localStorage.getItem('userInfo') || 'null'
   ) as IUserInfoResponse | null;
+
+  // useEffect(() => {
+  //   // console.log(window.location.href);
+
+  //   const fetchUserInfo = async () => {
+  //     const authCodeRegex = /code=([^&]+)/;
+  //     const isMatch = window.location.href.match(authCodeRegex);
+
+  //     if (isMatch) {
+  //       const authCode = isMatch ? isMatch[1] : null;
+
+  //       await fetch(
+  //         `http://localhost:8081/indentity/auth/outbound/authentication?code=${authCode}`,
+  //         {
+  //           method: 'POST',
+  //         }
+  //       )
+  //         .then((response) => {
+  //           return response.json();
+  //         })
+  //         .then((data) => {
+  //           console.log(data);
+  //         });
+  //     }
+
+  //     return;
+  //   };
+
+  //   fetchUserInfo();
+  // }, []);
 
   const mockLanguages: IDropdownItem[] = [
     {

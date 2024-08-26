@@ -1,4 +1,5 @@
 import TypeServiceComponent from '../../../../../components/TypeService';
+import TypeServiceSkeleton from '../../../../../components/skeletons/TypeService';
 import useQueryCategoryOfStore from '../../../../../hooks/queries/useQueryCategoryOfStore';
 import { TitleSection } from '../TitleSection/TitleSection';
 import './style.scss';
@@ -7,7 +8,17 @@ const TypeServiceSection = () => {
   const { data, error, isLoading } = useQueryCategoryOfStore();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="type__service-content--loading container">
+        <div className="title"></div>
+
+        <div className="content">
+          <TypeServiceSkeleton />
+          <TypeServiceSkeleton />
+          <TypeServiceSkeleton />
+        </div>
+      </div>
+    );
   }
 
   if (error) {

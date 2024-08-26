@@ -13,6 +13,52 @@ interface IAboutStoreSectionProps {
   description: string;
 }
 
+const mockTagsFood = [
+  {
+    id: 1,
+    name: 'Cơm tấm',
+  },
+  {
+    id: 2,
+    name: 'Món Việt',
+  },
+  {
+    id: 3,
+    name: 'Đồ khô',
+  },
+  {
+    id: 4,
+    name: 'Đồ uống',
+  },
+];
+
+const discountsMock = [
+  {
+    id: 1,
+    text: 'Giảm giá 10%',
+  },
+  {
+    id: 2,
+    text: 'Giảm giá 20%',
+  },
+  {
+    id: 3,
+    text: 'Giảm giá 30%',
+  },
+  {
+    id: 4,
+    text: 'Giảm giá 40%',
+  },
+  {
+    id: 5,
+    text: 'Giảm giá 50%',
+  },
+  {
+    id: 6,
+    text: 'Giảm giá 60%',
+  },
+];
+
 const AboutStoreSection = ({
   name,
   attributesTable,
@@ -33,20 +79,16 @@ const AboutStoreSection = ({
           </div>
 
           <div className="tag__food-categories">
-            {Array.from({ length: 3 }).map((_, index) => (
-              <TagFoodCategory
-                size="medium"
-                key={index}
-                content={`MON_${index + 2}`}
-              />
+            {mockTagsFood.map((tag, index) => (
+              <TagFoodCategory key={`${index}-${tag.id}`} content={tag.name} />
             ))}
           </div>
 
           <div className="discounts">
-            {Array.from({ length: 6 }).map((_, index) => (
+            {discountsMock.map((discount, index) => (
               <DiscountTagComponent
-                key={index}
-                textContent={`GIAM_${index + 1}`}
+                key={`${index}-${discount.id}`}
+                textContent={discount.text}
                 size="medium"
               />
             ))}
@@ -95,7 +137,7 @@ const AboutStoreSection = ({
           </div>
         </div>
       </section>
-      <section className="store__details-feedbacks"></section>
+      <section className="store__details-feedbacks">Chưa phát triển</section>
     </div>
   );
 };

@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import { CloseIcon } from '../../../../assets/icons';
 import { googleLogo } from '../../../../assets/images';
+import { setToken } from '../../../../utils/authentication';
 import FooterAuthModal from '../Partials/Footer';
 import HeadingAuthModal from '../Partials/Heading';
 import LoginForm from './Partials/LoginForm';
 import './styles.scss';
+import { OAuthConfig } from '../../../../config/OAuthConfig';
 
 interface ILoginModalProps {
   onClose: () => void;
@@ -11,6 +14,19 @@ interface ILoginModalProps {
 }
 
 const LoginModal = ({ onClose, onChangeModal }: ILoginModalProps) => {
+  const handleClickGoogle = () => {
+    const callbackUrl = OAuthConfig.redirectUri;
+    const authUrl = OAuthConfig.authUri;
+    const googleClientId = OAuthConfig.clientId;
+
+    //Redirect to Google form auth
+    const targetUrl = `${authUrl}?redirect_uri=${encodeURIComponent(
+      callbackUrl
+    )}&response_type=code&client_id=${googleClientId}&scope=openid%20email%20profile`;
+
+    window.location.href = targetUrl;
+  };
+
   return (
     <div className="login__modal">
       <div className="close" onClick={onClose}>
@@ -25,7 +41,10 @@ const LoginModal = ({ onClose, onChangeModal }: ILoginModalProps) => {
         </section>
 
         <div className="other__method">
-          <div className="method__google btn__login">
+          <div
+            className="method__google btn__login"
+            onClick={() => handleClickGoogle()}
+          >
             <img src={googleLogo} alt="logo of google" />
           </div>
         </div>

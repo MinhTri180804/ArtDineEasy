@@ -51,6 +51,10 @@
       font-weight: 400;
       font-size: var(--font-size-desktop-body-1);
       color: var(--text-nero-color);
+
+      @media screen and (max-width: 768px) {
+        font-size: var(--font-size-mobile-body-1);
+      }
     }
   }
 

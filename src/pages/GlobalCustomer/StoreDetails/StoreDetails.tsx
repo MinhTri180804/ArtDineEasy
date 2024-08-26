@@ -4,6 +4,8 @@ import AboutStoreSection from './Partials/InformationSection';
 import { StoreBannerSection } from './Partials/StoreBannerSection/StoreBannerSection';
 import './styles.scss';
 import MenuSection from './Partials/MenuSection';
+import MockLoading from '../../../components/skeletons/MockLoading';
+import SpinnerLoading from '../../../components/commons/SpinnerLoading';
 
 const StoreDetailsPage = () => {
   const { storeId } = useParams<Record<string, string>>();
@@ -16,11 +18,13 @@ const StoreDetailsPage = () => {
   }
 
   const { data, isLoading, error } = useQueryStore(storeId ?? '');
-  console.log(data);
 
   if (isLoading) {
-    // TODO: implement loading component in here
-    return <div>Loading...</div>;
+    return (
+      <div className='store__details-loading'>
+        <SpinnerLoading />
+      </div>
+    );
   }
 
   if (error) {

@@ -33,5 +33,8 @@
     font-weight: 400;
     color: var(--text-nero-color);
     width: 100%;
+    @media screen and (max-width: 768px) {
+      font-size: var(--font-size-mobile-body-1);
+    }
   }
 }

@@ -4,6 +4,8 @@ import NavTagSectionMenuComponent from './Partials/NavTagSectionMenu';
 import useQueryMenuOfStore from '../../../../../hooks/queries/useQueryMenuOfStore';
 import { useRef } from 'react';
 import { empty } from '../../../../../assets/images';
+import MockLoading from '../../../../../components/skeletons/MockLoading';
+import SpinnerLoading from '../../../../../components/commons/SpinnerLoading';
 
 interface IMenuSectionProps {
   idStore: string | number;
@@ -13,13 +15,15 @@ const MenuSection = ({ idStore }: IMenuSectionProps) => {
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const { data, isLoading, error } = useQueryMenuOfStore(idStore);
 
+  if (isLoading) {
+    return (
+      <div className='menu__section--loading'>
+        <SpinnerLoading />
+      </div>
+    );
+  }
   if (!data) {
     return null;
-  }
-
-  if (isLoading) {
-    // TODO: Implement loading component in here
-    return <div>Loading...</div>;
   }
 
   if (error) {
