@@ -1,0 +1,25 @@
+.store__details-page--container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  width: 100%;
+
+  & > .menu__section {
+    margin-top: 46px;
+  }
+}
+
+.store__details-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 258px);
+  .three-quarter-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--main-primary-color);
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.5s linear 0s infinite;
+  }
+}

@@ -5,25 +5,26 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../../../assets/icons';
-import StoreComponent from '../../../../../components/Store';
 import ButtonComponent from '../../../../../components/commons/Button';
+import { ITopicFoodStore } from '../../../../../types/response/Topic/topicType';
 import { TitleSection } from '../TitleSection/TitleSection';
 import './styles.scss';
+import StoreComponent from '../../../../../components/Store';
+import { getFinalSegments } from '../../../../../utils/spliceString';
 
 interface IStoreSwiperSectionProps {
-  propsOfTitleSection: {
-    titleNormal: string;
-    titleTarget?: string;
-  };
+  title: string;
+
+  dataStores: ITopicFoodStore[];
 }
 
 SwiperCore.use([Navigation]);
 
 const StoreSwiperSection = ({
-  propsOfTitleSection,
+  title,
+  dataStores,
 }: IStoreSwiperSectionProps) => {
-  const { titleNormal, titleTarget } = propsOfTitleSection;
-
+  const [titleNormal, titleTarget] = getFinalSegments(title, 2);
   const swiperRef = useRef<SwiperCore | null>(null);
 
   const handleNext = () => {
@@ -56,7 +57,7 @@ const StoreSwiperSection = ({
         spaceBetween={24}
         slidesPerView={4}
         className="mySwiper"
-        cssMode
+        // cssMode
         mousewheel={true}
         modules={[Mousewheel]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -77,27 +78,11 @@ const StoreSwiperSection = ({
         }}
       >
         <div className="swiper-wrapper">
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
-          <SwiperSlide>
-            <StoreComponent />
-          </SwiperSlide>
+          {dataStores?.map((store, index) => (
+            <SwiperSlide key={index}>
+              <StoreComponent store={store} />
+            </SwiperSlide>
+          ))}
         </div>
       </Swiper>
 

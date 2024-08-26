@@ -1,3 +1,4 @@
+import SpinnerLoading from '../SpinnerLoading';
 import './styles.scss';
 
 interface IButtonComponent {
@@ -7,6 +8,8 @@ interface IButtonComponent {
   Icon?: JSX.Element;
   iconPosition?: 'left' | 'right';
   disabled?: boolean;
+  loading?: boolean;
+  onClick?: () => void;
 }
 const ButtonComponent = ({
   content = 'Button',
@@ -15,21 +18,26 @@ const ButtonComponent = ({
   Icon,
   iconPosition,
   disabled = false,
+  onClick,
+  loading = false,
 }: IButtonComponent) => {
   return (
     <button
-      disabled={disabled}
+      disabled={disabled || loading}
       className="button__component"
       data-type={type}
       data-size={size}
       data-iconposition={iconPosition ?? 'none'}
       data-icon={Icon ? 'true' : 'false'}
+      onClick={onClick}
     >
-      {Icon && iconPosition && (
+      {Icon && iconPosition && !loading && (
         <div className="button__component-icon">{Icon}</div>
       )}
 
-      <div className="button__component-content">{content}</div>
+      <div className="button__component-content">
+        {loading ? <SpinnerLoading /> : content}
+      </div>
     </button>
   );
 };

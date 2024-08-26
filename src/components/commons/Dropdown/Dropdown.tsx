@@ -1,15 +1,16 @@
-import React, { ComponentType, useId } from 'react';
-import { IDropdownItem } from '../../../types/components/DropdownItem';
-import './styles.scss';
-import DropdownChildren from './Partials/DropdownChildren';
+import React, { ComponentType, ReactElement, useId } from 'react';
 import renderIcon from '../../../utils/renderIcon';
+import DropdownChildren from './Partials/DropdownChildren';
+import './styles.scss';
 
 interface IDropdown {
   IconLeft?: JSX.Element;
   ImageRight?: string | ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   classNames?: string;
-  dropdownChildren?: IDropdownItem[];
+  children?:
+    | ReactElement<typeof DropdownChildren>
+    | ReactElement<typeof DropdownChildren>[];
 }
 
 const Dropdown = ({
@@ -17,7 +18,7 @@ const Dropdown = ({
   ImageRight,
   title,
   classNames,
-  dropdownChildren,
+  children,
 }: IDropdown) => {
   const id = useId();
 
@@ -39,9 +40,7 @@ const Dropdown = ({
 
         <div className="dropdown__component-icon">{IconLeft}</div>
 
-        {dropdownChildren && (
-          <DropdownChildren childrenData={dropdownChildren} />
-        )}
+        <div className="dropdown__component-children">{children}</div>
       </div>
     );
   }
@@ -58,9 +57,7 @@ const Dropdown = ({
 
         <div className="dropdown__component-icon">{IconLeft}</div>
 
-        {dropdownChildren && (
-          <DropdownChildren childrenData={dropdownChildren} />
-        )}
+        <div className="dropdown__component-children">{children}</div>
       </div>
     );
   }
@@ -81,9 +78,7 @@ const Dropdown = ({
           <div className="dropdown__component-title--value">{title}</div>
         </div>
 
-        {dropdownChildren && (
-          <DropdownChildren childrenData={dropdownChildren} />
-        )}
+        <div className="dropdown__component-children">{children}</div>
       </div>
     );
   }
@@ -95,7 +90,7 @@ const Dropdown = ({
         <div className="dropdown__component-title--value">{title}</div>
       </div>
 
-      {dropdownChildren && <DropdownChildren childrenData={dropdownChildren} />}
+      <div className="dropdown__component-children">{children}</div>
     </div>
   );
 };

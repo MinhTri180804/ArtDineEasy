@@ -1,0 +1,158 @@
+.about__store-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  justify-content: start;
+  align-items: start;
+
+  //   Styling for section store details about
+  & > .store__details-about {
+    grid-column: 1 / span 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 64px;
+
+    @media screen and (max-width: 768px) {
+      grid-column: 1 / span 12;
+    }
+
+    & > .store__introduction {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
+      gap: 24px;
+      width: 100%;
+
+      & > .heading {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .name__store {
+          & > h2 {
+            font-weight: bold;
+            font-size: var(--font-size-desktop-heading-1);
+            color: var(--text-nero-color);
+            text-transform: uppercase;
+          }
+
+          & > .actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 12px;
+          }
+        }
+      }
+
+      & > .tag__food-categories {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      & > .discounts {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      & > .statistic {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24px;
+      }
+
+      & > .actions {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24px;
+      }
+    }
+
+    & > .store__information {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
+      gap: 32px;
+      width: 100%;
+
+      & > .heading {
+        & > h3 {
+          font-size: var(--font-size-desktop-heading-2);
+          color: var(--text-nero-color);
+          font-weight: 600;
+        }
+      }
+
+      & > .information__table,
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 100%;
+        padding: 8px 24px;
+      }
+
+      & > table > tbody > tr {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        & > td {
+          flex: 1;
+        }
+        & > td:last-child {
+          width: 100%;
+          font-weight: 400;
+        }
+
+        & > td:first-child {
+          font-weight: 500;
+          width: 100%;
+        }
+      }
+      & > .store__description {
+        & > p {
+          font-size: var(--font-size-desktop-body-1);
+          line-height: 165%;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  //   Styling for section store details information
+  & > .store__details-feedbacks {
+    height: 230px;
+    width: 100%;
+    grid-column: 8 / span 5;
+    border: 2px solid var(--main-primary-color);
+    border-radius: 4px;
+    line-height: 230px;
+    text-align: center;
+    color: var(--main-primary-color);
+    font-size: var(--font-size-desktop-body-1);
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}

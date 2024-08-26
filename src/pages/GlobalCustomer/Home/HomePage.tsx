@@ -1,9 +1,9 @@
 import 'swiper/scss';
+import { FoodCategoriesSection } from './partials/FoodCategoriesSection/FoodCategoriesSection';
 import HeroSection from './partials/HeroSection';
-import StoreSwiperSection from './partials/StoreSwiperSection';
+import TopicStoreSection from './partials/TopicStoreSection';
 import TypeServiceSection from './partials/TypeServiceSection';
 import './styles.scss';
-import { FoodCategoriesSection } from './partials/FoodCategoriesSection/FoodCategoriesSection';
 
 const HomePage = () => {
   return (
@@ -16,23 +16,7 @@ const HomePage = () => {
         <TypeServiceSection />
       </section>
 
-      <section className="store__hot-section  container section--margin">
-        <StoreSwiperSection
-          propsOfTitleSection={{
-            titleNormal: 'Các địa diểm',
-            titleTarget: 'Nổi bật',
-          }}
-        />
-      </section>
-
-      <section className="store__discount-section container section--margin">
-        <StoreSwiperSection
-          propsOfTitleSection={{
-            titleNormal: 'Các địa điểm có',
-            titleTarget: 'Ưu đãi',
-          }}
-        />
-      </section>
+    <TopicStoreSection />
 
       <section className="food__categories-section container section--margin">
         <FoodCategoriesSection titleNormal="Các món ăn" />

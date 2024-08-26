@@ -12,7 +12,7 @@
     overflow: hidden;
     border-radius: 4px;
 
-    & > img {
+    & a > img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -29,7 +29,7 @@
   }
 
   .store__name {
-    & > h2 {
+    & > h2 > a {
       cursor: pointer;
       font-size: var(--font-size-desktop-heading-3);
       font-weight: bold;
@@ -46,7 +46,16 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       color: var(--text-nero-color);
+      line-height: 150%;
     }
+  }
+
+  .store__discounts {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
   }
 
   .store__actions {

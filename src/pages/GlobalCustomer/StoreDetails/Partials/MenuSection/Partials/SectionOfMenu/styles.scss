@@ -1,0 +1,25 @@
+.section__of-menu--component {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+
+  & > .title {
+    font-size: var(--font-size-desktop-heading-2);
+    color: var(--text-nero-color);
+    font-weight: 600;
+  }
+
+  & > .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    justify-content: start;
+    align-items: stretch;
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
