@@ -4,6 +4,7 @@ import './styles.scss';
 import ButtonComponent from '../../../../commons/Button';
 import authApi from '../../../../../Api/Auth/authApi';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 interface IRegisterForm {
   firstName: string;
@@ -20,6 +21,7 @@ interface IRegisterFormProps {
 }
 
 const RegisterForm = ({ onOpenOTP }: IRegisterFormProps) => {
+  const [buttonLoading, setButtonLoading] = useState<boolean>(false);
   const {
     register,
     formState: { errors },
@@ -28,29 +30,41 @@ const RegisterForm = ({ onOpenOTP }: IRegisterFormProps) => {
   } = useForm<IRegisterForm>();
   const handleRegister: SubmitHandler<IRegisterForm> = async (data) => {
     const { firstName, lastName, email, password, phone } = data;
+    setButtonLoading(true);
+    toast.promise(
+      authApi
+        .registerOTP({
+          firstName,
+          lastName,
+          email,
+          phoneNumber: phone,
+          password,
+        })
+        .then((response) => {
+          toast.warning('Nhập mã OTP để xác thực tài khoản');
+          localStorage.setItem('OTP-code', JSON.stringify(response.result));
 
-    await authApi
-      .registerOTP({
-        firstName,
-        lastName,
-        email,
-        phoneNumber: phone,
-        password,
-      })
-      .then((response) => {
-        toast.warning('Nhập mã OTP để xác thực tài khoản');
-        localStorage.setItem('OTP-code', JSON.stringify(response.result));
-
-        localStorage.setItem(
-          'infoRegister',
-          JSON.stringify({ firstName, lastName, email, phone, password })
-        );
-        onOpenOTP();
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error('Đăng ký thất bại');
-      });
+          localStorage.setItem(
+            'infoRegister',
+            JSON.stringify({ firstName, lastName, email, phone, password })
+          );
+          setButtonLoading(false);
+          onOpenOTP();
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error('Đăng ký thất bại');
+        }),
+      {
+        pending: 'Đang xử lý...',
+        success: {
+          render: () => {
+            return 'Đăng ký thành công';
+          },
+        },
+        error: 'Đăng ký thất bại',
+      }
+    );
   };
   return (
     <form
@@ -129,7 +143,12 @@ const RegisterForm = ({ onOpenOTP }: IRegisterFormProps) => {
         />
       </div>
 
-      <ButtonComponent content="Đăng ký" size="40" type="primary" />
+      <ButtonComponent
+        content="Đăng ký"
+        size="40"
+        type="primary"
+        loading={buttonLoading}
+      />
     </form>
   );
 };
