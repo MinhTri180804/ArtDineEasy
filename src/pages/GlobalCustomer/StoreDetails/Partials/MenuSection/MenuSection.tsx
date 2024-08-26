@@ -1,11 +1,10 @@
-import './styles.scss';
-import SectionOfMenuComponent from './Partials/SectionOfMenu';
-import NavTagSectionMenuComponent from './Partials/NavTagSectionMenu';
-import useQueryMenuOfStore from '../../../../../hooks/queries/useQueryMenuOfStore';
 import { useRef } from 'react';
 import { empty } from '../../../../../assets/images';
-import MockLoading from '../../../../../components/skeletons/MockLoading';
 import SpinnerLoading from '../../../../../components/commons/SpinnerLoading';
+import useQueryMenuOfStore from '../../../../../hooks/queries/useQueryMenuOfStore';
+import NavTagSectionMenuComponent from './Partials/NavTagSectionMenu';
+import SectionOfMenuComponent from './Partials/SectionOfMenu';
+import './styles.scss';
 
 interface IMenuSectionProps {
   idStore: string | number;
@@ -17,7 +16,7 @@ const MenuSection = ({ idStore }: IMenuSectionProps) => {
 
   if (isLoading) {
     return (
-      <div className='menu__section--loading'>
+      <div className="menu__section--loading">
         <SpinnerLoading />
       </div>
     );

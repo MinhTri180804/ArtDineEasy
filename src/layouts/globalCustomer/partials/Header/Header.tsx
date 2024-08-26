@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import authApi from '../../../../Api/Auth/authApi';
@@ -15,41 +15,60 @@ import { IDropdownItem } from '../../../../types/components/DropdownItem';
 import { IUserInfoResponse } from '../../../../types/response/UserInfo/userInfoType';
 import { ROUTES_PATH } from '../../../../utils/constant';
 import './styles.scss';
+import OTPRegisterModal from '../../../../components/Modals/Auth/OTPRegister';
+import userApi from '../../../../Api/User/userApi';
 
 const HeaderComponent = () => {
+  const [isShowOverlay, setIsShowOverlay] = useState(false);
+  const [contentOverlay, setContentOverlay] = useState<React.ReactNode | null>(
+    null
+  );
   const user = JSON.parse(
     localStorage.getItem('userInfo') || 'null'
   ) as IUserInfoResponse | null;
 
-  // useEffect(() => {
-  //   // console.log(window.location.href);
+  useEffect(() => {
+    // console.log(window.location.href);
 
-  //   const fetchUserInfo = async () => {
-  //     const authCodeRegex = /code=([^&]+)/;
-  //     const isMatch = window.location.href.match(authCodeRegex);
+    const fetchUserInfo = async () => {
+      const authCodeRegex = /code=([^&]+)/;
+      const isMatch = window.location.href.match(authCodeRegex);
 
-  //     if (isMatch) {
-  //       const authCode = isMatch ? isMatch[1] : null;
+      if (isMatch) {
+        const authCode = isMatch ? isMatch[1] : null;
 
-  //       await fetch(
-  //         `http://localhost:8081/indentity/auth/outbound/authentication?code=${authCode}`,
-  //         {
-  //           method: 'POST',
-  //         }
-  //       )
-  //         .then((response) => {
-  //           return response.json();
-  //         })
-  //         .then((data) => {
-  //           console.log(data);
-  //         });
-  //     }
+        const res = await fetch(
+          `http://localhost:8081/indentity/auth/outbound/authentication?code=${authCode}`,
+          {
+            method: 'POST',
+          }
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            return data.result;
+          });
 
-  //     return;
-  //   };
+        const token = await res;
+        console.log(token);
+        localStorage.setItem('authentication', JSON.stringify(token));
 
-  //   fetchUserInfo();
-  // }, []);
+        const resUserInfo = await userApi.getInfo().then((response) => {
+          return response.result;
+        });
+
+        localStorage.setItem('userInfo', JSON.stringify(resUserInfo));
+        window.location.href = 'http://localhost:5173/';
+
+        return;
+      }
+
+      return;
+    };
+
+    fetchUserInfo();
+  }, []);
 
   const mockLanguages: IDropdownItem[] = [
     {
@@ -82,10 +101,6 @@ const HeaderComponent = () => {
     },
   ];
 
-  const [isShowOverlay, setIsShowOverlay] = useState(false);
-  const [contentOverlay, setContentOverlay] = useState<React.ReactNode | null>(
-    null
-  );
   const headerRef = useRef<HTMLHeadElement>(null);
   document.addEventListener('scroll', () => {
     const header = headerRef.current;
@@ -117,11 +132,25 @@ const HeaderComponent = () => {
     }
 
     if (value === 'register') {
+      const infoRegister = localStorage.getItem('infoRegister');
+      const otp = localStorage.getItem('OTP-code');
+      let isCheck = false;
+      if (infoRegister && otp) {
+        isCheck = true;
+      }
+
       setIsShowOverlay(true);
+      if (isCheck) {
+        setContentOverlay(
+          <OTPRegisterModal onClose={() => setIsShowOverlay(false)} />
+        );
+        return;
+      }
       setContentOverlay(
         <RegisterModal
           onChangeModal={changeLoginModal}
           onClose={() => setIsShowOverlay(false)}
+          hasPrevInfo={isCheck}
         />
       );
     }

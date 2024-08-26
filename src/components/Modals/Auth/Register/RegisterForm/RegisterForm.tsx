@@ -52,6 +52,7 @@ const RegisterForm = ({ onOpenOTP }: IRegisterFormProps) => {
           onOpenOTP();
         })
         .catch((error) => {
+          setButtonLoading(false);
           console.log(error);
           toast.error('Đăng ký thất bại');
         }),

@@ -1,5 +1,6 @@
 import { HeartIcon } from '../../assets/icons';
 import { IDishType } from '../../types/response/Dish/dishType';
+import formatCurrencyVND from '../../utils/formatCurrencyVND';
 import StarAction from '../Store/partials/StarAction';
 import './styles.scss';
 
@@ -28,7 +29,7 @@ const DishComponent = ({ dishData }: IDishComponentProps) => {
 
         <div className="footer">
           <div className="footer__price">
-            <div className="value">{price} VNĐ</div>
+            <div className="value">{formatCurrencyVND(price)} VNĐ</div>
           </div>
 
           <div className="footer__actions">

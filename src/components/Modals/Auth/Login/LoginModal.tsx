@@ -1,12 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import { CloseIcon } from '../../../../assets/icons';
 import { googleLogo } from '../../../../assets/images';
-import { setToken } from '../../../../utils/authentication';
+import { OAuthConfig } from '../../../../config/OAuthConfig';
 import FooterAuthModal from '../Partials/Footer';
 import HeadingAuthModal from '../Partials/Heading';
 import LoginForm from './Partials/LoginForm';
 import './styles.scss';
-import { OAuthConfig } from '../../../../config/OAuthConfig';
 
 interface ILoginModalProps {
   onClose: () => void;

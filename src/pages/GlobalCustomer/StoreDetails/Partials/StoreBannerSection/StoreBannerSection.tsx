@@ -13,7 +13,6 @@ interface IStoreBannerSectionProps {
 const DELAY_TIME = 1000;
 
 const StoreBannerSection = ({ banners }: IStoreBannerSectionProps) => {
-  console.log(banners);
   return (
     <div className="store__banners-section">
       <Swiper

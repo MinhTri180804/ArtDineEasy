@@ -16,7 +16,7 @@ const NavTagSectionMenuComponent = ({
   tagList,
   onTagClick,
 }: INavTagSectionMenuComponentProps) => {
-  const [activeTag, setActiveTag] = useState<string>(tagList[0]?.id );
+  const [activeTag, setActiveTag] = useState<string>(tagList[0]?.id);
 
   const handleClick = (idTag: string) => {
     setActiveTag(idTag);
@@ -27,7 +27,7 @@ const NavTagSectionMenuComponent = ({
     <div className="nav__tag-section-menu--component">
       <Swiper slidesPerView={'auto'}>
         {tagList.map((tag, index) => (
-          <SwiperSlide className="swiper-slide">
+          <SwiperSlide className="swiper-slide" key={index}>
             <TagMenuSectionComponent
               key={index}
               title={tag.title}

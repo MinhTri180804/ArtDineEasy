@@ -1,19 +1,24 @@
 import { useState } from 'react';
 import { CloseIcon } from '../../../../assets/icons';
 import { googleLogo } from '../../../../assets/images';
+import OTPRegisterModal from '../OTPRegister';
 import FooterAuthModal from '../Partials/Footer';
 import HeadingAuthModal from '../Partials/Heading';
 import RegisterForm from './RegisterForm';
 import './styles.scss';
-import OTPRegisterModal from '../OTPRegister';
 
 interface IRegisterModalProps {
   onClose: () => void;
   onChangeModal?: () => void;
+  hasPrevInfo?: boolean;
 }
 
-const RegisterModal = ({ onClose, onChangeModal }: IRegisterModalProps) => {
-  const [isShowOTP, setIsShowOTP] = useState(false);
+const RegisterModal = ({
+  hasPrevInfo,
+  onClose,
+  onChangeModal,
+}: IRegisterModalProps) => {
+  const [isShowOTP, setIsShowOTP] = useState(hasPrevInfo);
 
   const onOpenOTP = () => {
     setIsShowOTP(true);

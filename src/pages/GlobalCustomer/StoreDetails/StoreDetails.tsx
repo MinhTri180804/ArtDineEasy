@@ -1,11 +1,10 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import SpinnerLoading from '../../../components/commons/SpinnerLoading';
 import useQueryStore from '../../../hooks/queries/useQueryStore';
 import AboutStoreSection from './Partials/InformationSection';
+import MenuSection from './Partials/MenuSection';
 import { StoreBannerSection } from './Partials/StoreBannerSection/StoreBannerSection';
 import './styles.scss';
-import MenuSection from './Partials/MenuSection';
-import MockLoading from '../../../components/skeletons/MockLoading';
-import SpinnerLoading from '../../../components/commons/SpinnerLoading';
 
 const StoreDetailsPage = () => {
   const { storeId } = useParams<Record<string, string>>();
@@ -21,7 +20,7 @@ const StoreDetailsPage = () => {
 
   if (isLoading) {
     return (
-      <div className='store__details-loading'>
+      <div className="store__details-loading">
         <SpinnerLoading />
       </div>
     );
